@@ -1,0 +1,37 @@
+{
+  "name": "samodelkin",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "@strapi/plugin-color-picker": "^4.13.2",
+    "@strapi/plugin-i18n": "4.13.2",
+    "@strapi/plugin-seo": "^1.9.4",
+    "@strapi/plugin-users-permissions": "4.13.2",
+    "@strapi/provider-email-nodemailer": "^4.13.2",
+    "@strapi/provider-upload-cloudinary": "^4.13.2",
+    "@strapi/strapi": "4.13.2",
+    "custom-slug": "^2.1.1",
+    "pg": "8.8.0",
+    "strapi-plugin-import-export-entries": "^1.21.1",
+    "strapi-stripe": "^3.4.1"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "bf1665fb-71b4-4639-a51d-7f970f46dd62"
+  },
+  "engines": {
+    "node": ">=16.0.0 <=20.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}
