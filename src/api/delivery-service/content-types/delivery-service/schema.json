@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "delivery_services",
+  "info": {
+    "singularName": "delivery-service",
+    "pluralName": "delivery-services",
+    "displayName": "DeliveryService",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "slug": {
+      "type": "customField",
+      "options": {
+        "pattern": "title"
+      },
+      "customField": "plugin::slug.slug"
+    },
+    "active": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "homeDelivery": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "postOfficeDelivery": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}

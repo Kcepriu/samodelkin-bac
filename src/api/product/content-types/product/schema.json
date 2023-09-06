@@ -69,6 +69,10 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::color.color"
+    },
+    "additions": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

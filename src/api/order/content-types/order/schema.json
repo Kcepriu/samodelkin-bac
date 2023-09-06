@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "Order",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "date": {
+      "type": "datetime"
+    },
+    "totalSum": {
+      "type": "decimal"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "adresDelivery": {
+      "type": "component",
+      "repeatable": false,
+      "component": "order.adress"
+    },
+    "products": {
+      "type": "component",
+      "repeatable": true,
+      "component": "order.products-order"
+    },
+    "numberPhone": {
+      "type": "string",
+      "required": true,
+      "regex": "/\\+?\\d{1,4}?[-.\\s]?\\(?\\d{1,3}?\\)?[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,9}/g"
+    },
+    "email": {
+      "type": "email"
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "comment": {
+      "type": "text"
+    }
+  }
+}

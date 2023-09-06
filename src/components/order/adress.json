@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_order_adresses",
+  "info": {
+    "displayName": "Adress",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "cyty": {
+      "type": "string",
+      "required": true
+    },
+    "branchNumber": {
+      "type": "string"
+    },
+    "street": {
+      "type": "string"
+    },
+    "delivery_service": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::delivery-service.delivery-service"
+    }
+  }
+}
