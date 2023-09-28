@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_product_videos",
+  "info": {
+    "displayName": "Videos",
+    "icon": "crown",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "active": {
+      "type": "boolean",
+      "default": false
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -38,4 +38,8 @@ export default ({ env }) => ({
       },
     },
   },
+  // "content-manager": {
+  //   enabled: true,
+  //   resolve: "./src/plugins/content-manager",
+  // },
 });

@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_review_reply_reviews",
+  "info": {
+    "displayName": "ReplyReview",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "text",
+      "required": true
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "date": {
+      "type": "datetime"
+    },
+    "isPublication": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "shortContent": {
+      "type": "string"
+    }
+  }
+}
