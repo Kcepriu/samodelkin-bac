@@ -73,6 +73,11 @@
     "additions": {
       "type": "boolean",
       "default": false
+    },
+    "videos": {
+      "type": "component",
+      "repeatable": true,
+      "component": "product.videos"
     }
   }
 }

@@ -35,4 +35,8 @@ export default [
       },
     },
   },
+  // {
+  //   name: "global::reviews",
+  //   config: { uid: "api::review.review" },
+  // },
 ];
