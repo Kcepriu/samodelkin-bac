@@ -21,12 +21,12 @@ export default {
     },
     {
       method: "PUT",
-      path: "/changeStatusReplyToReview/:id/:idReply",
-      handler: "review.changeStatusReplyToReview",
+      path: "/changeReplyToReview/:id/:idReply",
+      handler: "review.changeReplyToReview",
       config: {
         middlewares: [
           "api::review.review-info",
-          "api::review.validation-change-status-review",
+          "api::review.validation-change-reply-to-review",
         ],
       },
     },

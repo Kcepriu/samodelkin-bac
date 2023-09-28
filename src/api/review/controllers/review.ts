@@ -85,11 +85,11 @@ export default factories.createCoreController(
       return this.transformResponse(sanitizedResults, {});
     },
 
-    async changeStatusReplyToReview(ctx) {
+    async changeReplyToReview(ctx) {
       const { id, idReply } = ctx.params;
       const data = ctx.request.body;
       const query = ctx.request.query;
-      const { isPublication } = data.data;
+      const { isPublication, content } = data.data;
 
       const foundReview = await strapi
         .service("api::review.review")
@@ -100,7 +100,13 @@ export default factories.createCoreController(
       const { replyReview } = foundReview;
 
       const newReplyReview = replyReview.map((reply) => {
-        if (reply.id === Number(idReply)) reply.isPublication = isPublication;
+        if (reply.id === Number(idReply)) {
+          reply.isPublication = isPublication;
+          if (content) {
+            reply.content = content;
+            reply.shortContent = content.slice(0, 25);
+          }
+        }
 
         return reply;
       });
