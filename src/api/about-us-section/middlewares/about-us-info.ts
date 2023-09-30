@@ -10,6 +10,24 @@ export default (config, { strapi }: { strapi: Strapi }) => {
     ctx.query.populate = {
       content: {
         fields: ["*"],
+        populate: {
+          image: {
+            fields: [
+              "id",
+              "name",
+              "alternativeText",
+              "width",
+              "height",
+              "hash",
+              "ext",
+              "mime",
+              "size",
+              "url",
+              "previewUrl",
+              "formats",
+            ],
+          },
+        },
       },
     };
 
