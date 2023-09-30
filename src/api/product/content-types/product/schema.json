@@ -21,7 +21,8 @@
       "type": "string",
       "required": true,
       "unique": true,
-      "maxLength": 15
+      "maxLength": 15,
+      "default": ""
     },
     "categories": {
       "type": "relation",
@@ -38,9 +39,7 @@
       "type": "media",
       "multiple": true,
       "required": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "slug": {
       "type": "customField",
@@ -50,7 +49,8 @@
       "customField": "plugin::slug.slug"
     },
     "descrition": {
-      "type": "richtext"
+      "type": "richtext",
+      "default": ""
     },
     "price": {
       "type": "decimal"

@@ -12,7 +12,7 @@ export default factories.createCoreController(
       const data = ctx.request.body;
       const files = ctx.request.files;
 
-      data.data.user = ctx.state.user.id;
+      // data.data.user = ctx.state.user.id;
       data.data.date = Date.now();
       data.data.isPublication = false;
       data.data.shortContent = data.data.content.slice(0, 25);
@@ -31,7 +31,7 @@ export default factories.createCoreController(
       const data = ctx.request.body;
       const query = ctx.request.query;
 
-      data.data.user = ctx.state.user.id;
+      // data.data.user = ctx.state.user.id;
       data.data.date = Date.now();
       data.data.isPublication = false;
       data.data.shortContent = data.data.content.slice(0, 25);

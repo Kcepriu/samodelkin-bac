@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_articles_title_articles",
+  "info": {
+    "displayName": "TitleArticle",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "levelTitle": {
+      "type": "integer",
+      "max": 6,
+      "min": 1,
+      "default": 1
+    }
+  }
+}

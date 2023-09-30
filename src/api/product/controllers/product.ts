@@ -11,12 +11,14 @@ export default factories.createCoreController(
       const sanitizedQueryParams = await this.sanitizeQuery(ctx);
       const filter = {};
 
-      sanitizedQueryParams.filters = sanitizedQueryParams.filters
-        ? {
-            ...sanitizedQueryParams.filters,
-            ...filter,
-          }
-        : filter;
+      sanitizedQueryParams.filters =
+        sanitizedQueryParams.filters &&
+        typeof sanitizedQueryParams.filters === "object"
+          ? {
+              ...sanitizedQueryParams.filters,
+              ...filter,
+            }
+          : filter;
 
       const { results, pagination } = await strapi
         .service("api::product.product")
@@ -32,12 +34,14 @@ export default factories.createCoreController(
       const sanitizedQueryParams = await this.sanitizeQuery(ctx);
       const filter = !isNaN(+id) ? { id: id } : { slug: id };
 
-      sanitizedQueryParams.filters = sanitizedQueryParams.filters
-        ? {
-            ...sanitizedQueryParams.filters,
-            ...filter,
-          }
-        : filter;
+      sanitizedQueryParams.filters =
+        sanitizedQueryParams.filters &&
+        typeof sanitizedQueryParams.filters === "object"
+          ? {
+              ...sanitizedQueryParams.filters,
+              ...filter,
+            }
+          : filter;
 
       const { results, pagination } = await strapi
         .service("api::product.product")

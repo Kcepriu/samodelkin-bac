@@ -38,6 +38,9 @@ export default ({ env }) => ({
       },
     },
   },
+  "drag-drop-content-types": {
+    enabled: true,
+  },
   // "content-manager": {
   //   enabled: true,
   //   resolve: "./src/plugins/content-manager",

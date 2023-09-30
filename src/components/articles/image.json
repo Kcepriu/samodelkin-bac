@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_articles_images",
+  "info": {
+    "displayName": "Image",
+    "icon": "picture",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "discription": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

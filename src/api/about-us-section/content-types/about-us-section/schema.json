@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "about_us_sections",
+  "info": {
+    "singularName": "about-us-section",
+    "pluralName": "about-us-sections",
+    "displayName": "AboutUsSection",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "articles.content-image",
+        "articles.content",
+        "articles.image",
+        "articles.title-article"
+      ],
+      "required": true
+    }
+  }
+}

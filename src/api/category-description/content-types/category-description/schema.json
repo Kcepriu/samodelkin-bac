@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "category_descriptions",
+  "info": {
+    "singularName": "category-description",
+    "pluralName": "category-descriptions",
+    "displayName": "Category description"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "articles.content-image",
+        "articles.content",
+        "articles.image",
+        "articles.title-article"
+      ],
+      "required": true
+    }
+  }
+}

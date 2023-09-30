@@ -35,17 +35,20 @@
     },
     "numberPhone": {
       "type": "string",
-      "required": true
+      "required": true,
+      "default": ""
     },
     "email": {
       "type": "email"
     },
     "name": {
       "type": "string",
-      "required": true
+      "required": true,
+      "default": ""
     },
     "comment": {
-      "type": "text"
+      "type": "text",
+      "default": ""
     }
   }
 }
