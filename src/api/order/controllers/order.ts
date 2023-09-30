@@ -12,12 +12,14 @@ export default factories.createCoreController(
       const sanitizedQueryParams = await this.sanitizeQuery(ctx);
       const filterUser = { user: ctx.state.user.id };
 
-      sanitizedQueryParams.filters = sanitizedQueryParams.filters
-        ? {
-            ...sanitizedQueryParams.filters,
-            ...filterUser,
-          }
-        : filterUser;
+      sanitizedQueryParams.filters =
+        sanitizedQueryParams.filters &&
+        typeof sanitizedQueryParams.filters === "object"
+          ? {
+              ...sanitizedQueryParams.filters,
+              ...filterUser,
+            }
+          : filterUser;
 
       const { results, pagination } = await strapi
         .service("api::order.order")
@@ -34,12 +36,14 @@ export default factories.createCoreController(
       const sanitizedQueryParams = await this.sanitizeQuery(ctx);
       const filterUser = { user: ctx.state.user.id, id };
 
-      sanitizedQueryParams.filters = sanitizedQueryParams.filters
-        ? {
-            ...sanitizedQueryParams.filters,
-            ...filterUser,
-          }
-        : filterUser;
+      sanitizedQueryParams.filters =
+        sanitizedQueryParams.filters &&
+        typeof sanitizedQueryParams.filters === "object"
+          ? {
+              ...sanitizedQueryParams.filters,
+              ...filterUser,
+            }
+          : filterUser;
 
       const { results, pagination } = await strapi
         .service("api::order.order")

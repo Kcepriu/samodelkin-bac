@@ -7,11 +7,18 @@ import { Strapi } from "@strapi/strapi";
 export default (config, { strapi }: { strapi: Strapi }) => {
   return async (ctx, next) => {
     ctx.query.populate = {
-      user: {
-        fields: ["fullName"],
-      },
+      // user: {
+      //   fields: ["fullName"],
+      // },
       product: {
-        fields: ["code", "slug", "descrition", "title"],
+        fields: [
+          "code",
+          "slug",
+          "descrition",
+          "title",
+          "firstName",
+          "secondName",
+        ],
         populate: {
           images: {
             fields: [
@@ -32,12 +39,12 @@ export default (config, { strapi }: { strapi: Strapi }) => {
         },
       },
       replyReview: {
-        fields: ["content", "date", "isPublication"],
-        populate: {
-          user: {
-            fields: ["fullName"],
-          },
-        },
+        fields: ["content", "date", "isPublication", "firstName", "secondName"],
+        // populate: {
+        //   user: {
+        //     fields: ["fullName"],
+        //   },
+        // },
       },
     };
 

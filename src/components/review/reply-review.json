@@ -10,11 +10,6 @@
       "type": "text",
       "required": true
     },
-    "user": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "plugin::users-permissions.user"
-    },
     "date": {
       "type": "datetime"
     },
@@ -24,7 +19,18 @@
       "required": true
     },
     "shortContent": {
-      "type": "string"
+      "type": "string",
+      "default": ""
+    },
+    "firstName": {
+      "type": "string",
+      "required": true,
+      "maxLength": 20
+    },
+    "secondName": {
+      "type": "string",
+      "default": "",
+      "maxLength": 20
     }
   }
 }

@@ -19,7 +19,7 @@ export default (plugin) => {
       const data = ctx.request.body;
       console.log("🚀 ~ data:", data);
 
-      data.user = ctx.state.user.id;
+      // data.user = ctx.state.user.id;
       data.date = Date.now();
       data.shortContent = data.content.slice(0, 25);
     }

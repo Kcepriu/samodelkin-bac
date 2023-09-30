@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_descriptions",
+  "info": {
+    "singularName": "product-description",
+    "pluralName": "product-descriptions",
+    "displayName": "Product description",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product"
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "articles.content-image",
+        "articles.content",
+        "articles.image",
+        "articles.title-article"
+      ],
+      "required": true
+    }
+  }
+}
