@@ -10,7 +10,7 @@
       "type": "richtext",
       "required": true
     },
-    "disctription": {
+    "description": {
       "type": "string",
       "required": true
     }

@@ -15,7 +15,7 @@
         "images"
       ]
     },
-    "discription": {
+    "description": {
       "type": "string",
       "required": true
     }
