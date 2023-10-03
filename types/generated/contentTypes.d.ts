@@ -1274,7 +1274,7 @@ export interface ApiReviewReview extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 20;
       }>;
-    secondName: Attribute.String &
+    lastName: Attribute.String &
       Attribute.SetMinMaxLength<{
         maxLength: 20;
       }>;

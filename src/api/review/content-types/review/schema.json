@@ -54,7 +54,7 @@
       "required": true,
       "maxLength": 20
     },
-    "secondName": {
+    "lastName": {
       "type": "string",
       "maxLength": 20
     }

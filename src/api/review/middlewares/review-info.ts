@@ -11,14 +11,7 @@ export default (config, { strapi }: { strapi: Strapi }) => {
       //   fields: ["fullName"],
       // },
       product: {
-        fields: [
-          "code",
-          "slug",
-          "descrition",
-          "title",
-          "firstName",
-          "secondName",
-        ],
+        fields: ["code", "slug", "descrition", "title"],
         populate: {
           images: {
             fields: [
@@ -39,7 +32,7 @@ export default (config, { strapi }: { strapi: Strapi }) => {
         },
       },
       replyReview: {
-        fields: ["content", "date", "isPublication", "firstName", "secondName"],
+        fields: ["content", "date", "isPublication", "firstName", "lastName"],
         // populate: {
         //   user: {
         //     fields: ["fullName"],

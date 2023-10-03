@@ -138,17 +138,16 @@ export interface ReviewReplyReview extends Schema.Component {
     isPublication: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<false>;
-    shortContent: Attribute.String & Attribute.DefaultTo<''>;
+    shortContent: Attribute.String;
     firstName: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 20;
       }>;
-    secondName: Attribute.String &
+    lastName: Attribute.String &
       Attribute.SetMinMaxLength<{
         maxLength: 20;
-      }> &
-      Attribute.DefaultTo<''>;
+      }>;
   };
 }
 

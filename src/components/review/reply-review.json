@@ -19,17 +19,15 @@
       "required": true
     },
     "shortContent": {
-      "type": "string",
-      "default": ""
+      "type": "string"
     },
     "firstName": {
       "type": "string",
       "required": true,
       "maxLength": 20
     },
-    "secondName": {
+    "lastName": {
       "type": "string",
-      "default": "",
       "maxLength": 20
     }
   }
