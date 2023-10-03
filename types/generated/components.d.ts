@@ -30,7 +30,7 @@ export interface ArticlesContent extends Schema.Component {
   };
   attributes: {
     content: Attribute.RichText & Attribute.Required;
-    disctription: Attribute.String & Attribute.Required;
+    description: Attribute.String & Attribute.Required;
   };
 }
 
@@ -43,7 +43,7 @@ export interface ArticlesImage extends Schema.Component {
   };
   attributes: {
     image: Attribute.Media & Attribute.Required;
-    discription: Attribute.String & Attribute.Required;
+    description: Attribute.String & Attribute.Required;
   };
 }
 
