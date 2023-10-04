@@ -27,10 +27,12 @@
       "required": true
     },
     "advantages": {
-      "type": "text"
+      "type": "text",
+      "default": ""
     },
     "disAdvantages": {
-      "type": "text"
+      "type": "text",
+      "default": ""
     },
     "product": {
       "type": "relation",
@@ -38,7 +40,8 @@
       "target": "api::product.product"
     },
     "shortContent": {
-      "type": "string"
+      "type": "string",
+      "default": ""
     },
     "replyReview": {
       "type": "component",
@@ -52,11 +55,13 @@
     "firstName": {
       "type": "string",
       "required": true,
-      "maxLength": 20
+      "maxLength": 20,
+      "default": ""
     },
     "lastName": {
       "type": "string",
-      "maxLength": 20
+      "maxLength": 20,
+      "default": ""
     }
   }
 }

@@ -8,7 +8,8 @@
   "attributes": {
     "content": {
       "type": "text",
-      "required": true
+      "required": true,
+      "default": ""
     },
     "date": {
       "type": "datetime"
@@ -19,16 +20,19 @@
       "required": true
     },
     "shortContent": {
-      "type": "string"
+      "type": "string",
+      "default": ""
     },
     "firstName": {
       "type": "string",
       "required": true,
-      "maxLength": 20
+      "maxLength": 20,
+      "default": ""
     },
     "lastName": {
       "type": "string",
-      "maxLength": 20
+      "maxLength": 20,
+      "default": ""
     }
   }
 }

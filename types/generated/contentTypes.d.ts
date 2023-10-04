@@ -1259,25 +1259,27 @@ export interface ApiReviewReview extends Schema.CollectionType {
       }> &
       Attribute.DefaultTo<5>;
     content: Attribute.Text & Attribute.Required;
-    advantages: Attribute.Text;
-    disAdvantages: Attribute.Text;
+    advantages: Attribute.Text & Attribute.DefaultTo<''>;
+    disAdvantages: Attribute.Text & Attribute.DefaultTo<''>;
     product: Attribute.Relation<
       'api::review.review',
       'oneToOne',
       'api::product.product'
     >;
-    shortContent: Attribute.String;
+    shortContent: Attribute.String & Attribute.DefaultTo<''>;
     replyReview: Attribute.Component<'review.reply-review', true>;
     isPublication: Attribute.Boolean & Attribute.DefaultTo<false>;
     firstName: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 20;
-      }>;
+      }> &
+      Attribute.DefaultTo<''>;
     lastName: Attribute.String &
       Attribute.SetMinMaxLength<{
         maxLength: 20;
-      }>;
+      }> &
+      Attribute.DefaultTo<''>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
