@@ -14,9 +14,7 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "percentImage": {
       "type": "integer",
@@ -31,7 +29,8 @@
     },
     "description": {
       "type": "string",
-      "required": true
+      "required": true,
+      "default": ""
     }
   }
 }

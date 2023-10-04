@@ -18,7 +18,9 @@ export interface ArticlesContentImage extends Schema.Component {
     reverseDirection: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<false>;
-    description: Attribute.String & Attribute.Required;
+    description: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<''>;
   };
 }
 
@@ -30,7 +32,9 @@ export interface ArticlesContent extends Schema.Component {
   };
   attributes: {
     content: Attribute.RichText & Attribute.Required;
-    description: Attribute.String & Attribute.Required;
+    description: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<''>;
   };
 }
 
@@ -43,7 +47,9 @@ export interface ArticlesImage extends Schema.Component {
   };
   attributes: {
     image: Attribute.Media & Attribute.Required;
-    description: Attribute.String & Attribute.Required;
+    description: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<''>;
   };
 }
 
@@ -54,7 +60,7 @@ export interface ArticlesTitleArticle extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.String & Attribute.Required;
+    title: Attribute.String & Attribute.Required & Attribute.DefaultTo<''>;
     levelTitle: Attribute.Integer &
       Attribute.SetMinMax<{
         min: 1;
