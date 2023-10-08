@@ -118,6 +118,31 @@ export interface OrderProductsOrder extends Schema.Component {
   };
 }
 
+export interface ProductLanguages extends Schema.Component {
+  collectionName: 'components_product_languages';
+  info: {
+    displayName: 'languages';
+    icon: 'earth';
+  };
+  attributes: {
+    language: Attribute.Enumeration<['ua', 'us', 'ru']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'ua'>;
+  };
+}
+
+export interface ProductManual extends Schema.Component {
+  collectionName: 'components_product_manuals';
+  info: {
+    displayName: 'manual';
+    icon: 'bold';
+  };
+  attributes: {
+    file: Attribute.Media;
+    description: Attribute.String;
+  };
+}
+
 export interface ProductVideos extends Schema.Component {
   collectionName: 'components_product_videos';
   info: {
@@ -139,21 +164,23 @@ export interface ReviewReplyReview extends Schema.Component {
     description: '';
   };
   attributes: {
-    content: Attribute.Text & Attribute.Required;
+    content: Attribute.Text & Attribute.Required & Attribute.DefaultTo<''>;
     date: Attribute.DateTime;
     isPublication: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<false>;
-    shortContent: Attribute.String;
+    shortContent: Attribute.String & Attribute.DefaultTo<''>;
     firstName: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 20;
-      }>;
+      }> &
+      Attribute.DefaultTo<''>;
     lastName: Attribute.String &
       Attribute.SetMinMaxLength<{
         maxLength: 20;
-      }>;
+      }> &
+      Attribute.DefaultTo<''>;
   };
 }
 
@@ -218,6 +245,8 @@ declare module '@strapi/types' {
       'articles.title-article': ArticlesTitleArticle;
       'order.adress': OrderAdress;
       'order.products-order': OrderProductsOrder;
+      'product.languages': ProductLanguages;
+      'product.manual': ProductManual;
       'product.videos': ProductVideos;
       'review.reply-review': ReviewReplyReview;
       'shared.meta-social': SharedMetaSocial;

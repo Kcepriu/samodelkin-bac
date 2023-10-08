@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_product_languages",
+  "info": {
+    "displayName": "languages",
+    "icon": "earth"
+  },
+  "options": {},
+  "attributes": {
+    "language": {
+      "type": "enumeration",
+      "enum": [
+        "ua",
+        "us",
+        "ru"
+      ],
+      "default": "ua",
+      "required": true
+    }
+  }
+}
