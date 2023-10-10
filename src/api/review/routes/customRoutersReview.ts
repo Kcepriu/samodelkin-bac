@@ -1,6 +1,14 @@
 export default {
   routes: [
     {
+      method: "GET",
+      path: "/lastReviews",
+      handler: "review.lastReviews",
+      config: {
+        middlewares: ["api::review.review-info"],
+      },
+    },
+    {
       method: "PUT",
       path: "/replyToReview/:id",
       handler: "review.replyToReview",

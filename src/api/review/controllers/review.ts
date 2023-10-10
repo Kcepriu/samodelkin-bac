@@ -62,7 +62,6 @@ export default factories.createCoreController(
 
     async changeStatusReview(ctx) {
       const { id } = ctx.params;
-      console.log("🚀 ~ ctx.params:", ctx.params);
       const data = ctx.request.body;
       const query = ctx.request.query;
       const { isPublication } = data.data;
@@ -120,6 +119,21 @@ export default factories.createCoreController(
 
       const sanitizedResults = await this.sanitizeOutput(results, ctx);
 
+      return this.transformResponse(sanitizedResults, {});
+    },
+    async lastReviews(ctx) {
+      const { category, populate } = ctx.request.query;
+
+      const results = await strapi
+        .service("api::review.review")
+        .getLastReviews(category, populate);
+      console.log("🚀 ~ results:", results);
+
+      if (results.error) {
+        ctx.throw(400, results.message);
+      }
+
+      const sanitizedResults = await this.sanitizeOutput(results.response, ctx);
       return this.transformResponse(sanitizedResults, {});
     },
   })
