@@ -1178,6 +1178,10 @@ export interface ApiProductProduct extends Schema.CollectionType {
     videos: Attribute.Component<'product.videos', true>;
     languages: Attribute.Component<'product.languages', true>;
     manual: Attribute.Component<'product.manual', true>;
+    dicount: Attribute.Integer &
+      Attribute.SetMinMax<{
+        max: 100;
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
