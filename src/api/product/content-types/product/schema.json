@@ -38,9 +38,7 @@
       "type": "media",
       "multiple": true,
       "required": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "slug": {
       "type": "customField",
@@ -91,7 +89,8 @@
     },
     "dicount": {
       "type": "integer",
-      "max": 100
+      "max": 100,
+      "default": 0
     }
   }
 }

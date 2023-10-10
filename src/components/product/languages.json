@@ -8,13 +8,8 @@
   "attributes": {
     "language": {
       "type": "enumeration",
-      "enum": [
-        "ua",
-        "us",
-        "ru"
-      ],
-      "default": "ua",
-      "required": true
+      "enum": ["ua", "us", "ru"],
+      "default": "ua"
     }
   }
 }
