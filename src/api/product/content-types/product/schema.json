@@ -21,8 +21,7 @@
       "type": "string",
       "required": true,
       "unique": true,
-      "maxLength": 15,
-      "default": ""
+      "maxLength": 15
     },
     "categories": {
       "type": "relation",
@@ -39,7 +38,9 @@
       "type": "media",
       "multiple": true,
       "required": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "slug": {
       "type": "customField",
@@ -49,8 +50,7 @@
       "customField": "plugin::slug.slug"
     },
     "descrition": {
-      "type": "richtext",
-      "default": ""
+      "type": "richtext"
     },
     "price": {
       "type": "decimal"
@@ -78,6 +78,20 @@
       "type": "component",
       "repeatable": true,
       "component": "product.videos"
+    },
+    "languages": {
+      "type": "component",
+      "repeatable": true,
+      "component": "product.languages"
+    },
+    "manual": {
+      "type": "component",
+      "repeatable": true,
+      "component": "product.manual"
+    },
+    "dicount": {
+      "type": "integer",
+      "max": 100
     }
   }
 }

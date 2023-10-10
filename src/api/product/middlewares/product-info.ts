@@ -32,6 +32,15 @@ export default (config, { strapi }: { strapi: Strapi }) => {
       colorBox: {
         fields: ["title", "color"],
       },
+      languages: {
+        fields: ["language"],
+      },
+      manual: {
+        fields: ["file", "description"],
+        populate: {
+          file: { fields: ["*"] },
+        },
+      },
     };
 
     await next();

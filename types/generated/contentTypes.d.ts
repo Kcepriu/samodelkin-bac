@@ -1148,8 +1148,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
       Attribute.Unique &
       Attribute.SetMinMaxLength<{
         maxLength: 15;
-      }> &
-      Attribute.DefaultTo<''>;
+      }>;
     categories: Attribute.Relation<
       'api::product.product',
       'manyToMany',
@@ -1166,7 +1165,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
           pattern: 'title';
         }
       >;
-    descrition: Attribute.RichText & Attribute.DefaultTo<''>;
+    descrition: Attribute.RichText;
     price: Attribute.Decimal;
     seo: Attribute.Component<'shared.seo', true>;
     available: Attribute.Boolean & Attribute.DefaultTo<true>;
@@ -1177,6 +1176,12 @@ export interface ApiProductProduct extends Schema.CollectionType {
     >;
     additions: Attribute.Boolean & Attribute.DefaultTo<false>;
     videos: Attribute.Component<'product.videos', true>;
+    languages: Attribute.Component<'product.languages', true>;
+    manual: Attribute.Component<'product.manual', true>;
+    dicount: Attribute.Integer &
+      Attribute.SetMinMax<{
+        max: 100;
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
