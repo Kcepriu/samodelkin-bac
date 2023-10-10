@@ -26,11 +26,11 @@ export default (config, { strapi }: { strapi: Strapi }) => {
           "formats",
         ],
       },
-      videos: {
-        fields: ["url", "active", "title"],
-      },
       colorBox: {
         fields: ["title", "color"],
+      },
+      videos: {
+        fields: ["url", "active", "title"],
       },
       languages: {
         fields: ["language"],
