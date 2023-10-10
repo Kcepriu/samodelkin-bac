@@ -9,10 +9,8 @@
     "language": {
       "type": "enumeration",
       "enum": ["ua", "us", "ru"],
-      "default": "ua"
-    },
-    "url": {
-      "type": "string"
+      "default": "ua",
+      "required": true
     }
   }
 }
