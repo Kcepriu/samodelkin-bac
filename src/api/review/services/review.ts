@@ -7,7 +7,7 @@ import { factories } from "@strapi/strapi";
 export default factories.createCoreService(
   "api::review.review",
   ({ strapi }) => ({
-    async getLastReviews(category, populate) {
+    async getLastReviews(category, count, populate) {
       const filterCategoty = !category
         ? {}
         : { product: { categories: category } };
@@ -16,7 +16,7 @@ export default factories.createCoreService(
         where: { isPublication: false, ...filterCategoty },
 
         orderBy: { date: "DESC" },
-        limit: 10,
+        limit: count || 5,
         populate,
       });
 
