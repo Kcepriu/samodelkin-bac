@@ -122,12 +122,11 @@ export default factories.createCoreController(
       return this.transformResponse(sanitizedResults, {});
     },
     async lastReviews(ctx) {
-      const { category, populate } = ctx.request.query;
+      const { category, count, populate } = ctx.request.query;
 
       const results = await strapi
         .service("api::review.review")
-        .getLastReviews(category, populate);
-      console.log("🚀 ~ results:", results);
+        .getLastReviews(category, count, populate);
 
       if (results.error) {
         ctx.throw(400, results.message);
