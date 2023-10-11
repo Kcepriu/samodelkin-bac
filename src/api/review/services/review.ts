@@ -13,7 +13,7 @@ export default factories.createCoreService(
         : { product: { categories: category } };
       const response = await strapi.db.query("api::review.review").findMany({
         select: ["*"],
-        where: { isPublication: false, ...filterCategoty },
+        where: { isPublication: true, ...filterCategoty },
 
         orderBy: { date: "DESC" },
         limit: count || 5,
