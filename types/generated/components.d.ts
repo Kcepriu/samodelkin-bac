@@ -136,6 +136,7 @@ export interface ProductManual extends Schema.Component {
   info: {
     displayName: 'manual';
     icon: 'bold';
+    description: '';
   };
   attributes: {
     file: Attribute.Media;
