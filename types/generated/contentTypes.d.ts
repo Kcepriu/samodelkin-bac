@@ -1181,7 +1181,8 @@ export interface ApiProductProduct extends Schema.CollectionType {
     dicount: Attribute.Integer &
       Attribute.SetMinMax<{
         max: 100;
-      }>;
+      }> &
+      Attribute.DefaultTo<0>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

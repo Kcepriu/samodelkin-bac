@@ -40,7 +40,7 @@ export default factories.createCoreController(
         .service("api::review.review")
         .findOne(id, { populate: { replyReview: true } });
 
-      if (!foundReview) throw new Error("Not found");
+      if (!foundReview) ctx.throw(400, "Not found");
 
       const { replyReview } = foundReview;
       replyReview.push(data.data);
@@ -70,7 +70,7 @@ export default factories.createCoreController(
         .service("api::review.review")
         .findOne(id);
 
-      if (!foundReview) throw new Error("Not found");
+      if (!foundReview) ctx.throw(400, "Not found");
 
       const results = await strapi.service("api::review.review").update(id, {
         ...query,
@@ -94,7 +94,7 @@ export default factories.createCoreController(
         .service("api::review.review")
         .findOne(id, { populate: { replyReview: true } });
 
-      if (!foundReview) throw new Error("Not found");
+      if (!foundReview) ctx.throw(400, "Not found");
 
       const { replyReview } = foundReview;
 
