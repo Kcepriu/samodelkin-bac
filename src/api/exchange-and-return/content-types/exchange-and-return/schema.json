@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "exchange_and_returns",
+  "info": {
+    "singularName": "exchange-and-return",
+    "pluralName": "exchange-and-returns",
+    "displayName": "ExchangeAndReturn"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "articles.content-image",
+        "articles.content",
+        "articles.image",
+        "articles.title-article"
+      ],
+      "required": true
+    }
+  }
+}

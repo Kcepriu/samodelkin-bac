@@ -900,6 +900,33 @@ export interface ApiAboutUsSectionAboutUsSection extends Schema.SingleType {
   };
 }
 
+export interface ApiCartCart extends Schema.CollectionType {
+  collectionName: 'carts';
+  info: {
+    singularName: 'cart';
+    pluralName: 'carts';
+    displayName: 'Cart';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    user: Attribute.Relation<
+      'api::cart.cart',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    products: Attribute.Component<'order.products-order', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::cart.cart', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::cart.cart', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCategoryCategory extends Schema.CollectionType {
   collectionName: 'categories';
   info: {
@@ -1041,6 +1068,46 @@ export interface ApiColorColor extends Schema.CollectionType {
   };
 }
 
+export interface ApiDeliveryAndPaymentDeliveryAndPayment
+  extends Schema.SingleType {
+  collectionName: 'delivery_and_payments';
+  info: {
+    singularName: 'delivery-and-payment';
+    pluralName: 'delivery-and-payments';
+    displayName: 'DeliveryAndPayment';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Attribute.DynamicZone<
+      [
+        'articles.content-image',
+        'articles.content',
+        'articles.image',
+        'articles.title-article'
+      ]
+    > &
+      Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::delivery-and-payment.delivery-and-payment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::delivery-and-payment.delivery-and-payment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiDeliveryServiceDeliveryService
   extends Schema.CollectionType {
   collectionName: 'delivery_services';
@@ -1079,6 +1146,84 @@ export interface ApiDeliveryServiceDeliveryService
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::delivery-service.delivery-service',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiExchangeAndReturnExchangeAndReturn
+  extends Schema.SingleType {
+  collectionName: 'exchange_and_returns';
+  info: {
+    singularName: 'exchange-and-return';
+    pluralName: 'exchange-and-returns';
+    displayName: 'ExchangeAndReturn';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Attribute.DynamicZone<
+      [
+        'articles.content-image',
+        'articles.content',
+        'articles.image',
+        'articles.title-article'
+      ]
+    > &
+      Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::exchange-and-return.exchange-and-return',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::exchange-and-return.exchange-and-return',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFavoriteFavorite extends Schema.CollectionType {
+  collectionName: 'favorites';
+  info: {
+    singularName: 'favorite';
+    pluralName: 'favorites';
+    displayName: 'Favorite';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    user: Attribute.Relation<
+      'api::favorite.favorite',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    product: Attribute.Relation<
+      'api::favorite.favorite',
+      'oneToOne',
+      'api::product.product'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::favorite.favorite',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::favorite.favorite',
       'oneToOne',
       'admin::user'
     > &
@@ -1324,10 +1469,14 @@ declare module '@strapi/types' {
       'plugin::strapi-stripe.ss-payment': PluginStrapiStripeSsPayment;
       'plugin::telegram-bot-strapi.telegram': PluginTelegramBotStrapiTelegram;
       'api::about-us-section.about-us-section': ApiAboutUsSectionAboutUsSection;
+      'api::cart.cart': ApiCartCart;
       'api::category.category': ApiCategoryCategory;
       'api::category-description.category-description': ApiCategoryDescriptionCategoryDescription;
       'api::color.color': ApiColorColor;
+      'api::delivery-and-payment.delivery-and-payment': ApiDeliveryAndPaymentDeliveryAndPayment;
       'api::delivery-service.delivery-service': ApiDeliveryServiceDeliveryService;
+      'api::exchange-and-return.exchange-and-return': ApiExchangeAndReturnExchangeAndReturn;
+      'api::favorite.favorite': ApiFavoriteFavorite;
       'api::order.order': ApiOrderOrder;
       'api::product.product': ApiProductProduct;
       'api::product-description.product-description': ApiProductDescriptionProductDescription;
