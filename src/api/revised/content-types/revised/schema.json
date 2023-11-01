@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "favorites",
+  "collectionName": "reviseds",
   "info": {
-    "singularName": "favorite",
-    "pluralName": "favorites",
-    "displayName": "Favorite",
+    "singularName": "revised",
+    "pluralName": "reviseds",
+    "displayName": "Revised",
     "description": ""
   },
   "options": {

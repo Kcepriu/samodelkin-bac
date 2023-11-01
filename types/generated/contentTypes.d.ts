@@ -1198,24 +1198,25 @@ export interface ApiFavoriteFavorite extends Schema.CollectionType {
     singularName: 'favorite';
     pluralName: 'favorites';
     displayName: 'Favorite';
+    description: '';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     user: Attribute.Relation<
       'api::favorite.favorite',
       'oneToOne',
       'plugin::users-permissions.user'
-    >;
-    product: Attribute.Relation<
+    > &
+      Attribute.Unique;
+    products: Attribute.Relation<
       'api::favorite.favorite',
-      'oneToOne',
+      'oneToMany',
       'api::product.product'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'api::favorite.favorite',
       'oneToOne',
@@ -1449,6 +1450,46 @@ export interface ApiReviewReview extends Schema.CollectionType {
   };
 }
 
+export interface ApiRevisedRevised extends Schema.CollectionType {
+  collectionName: 'reviseds';
+  info: {
+    singularName: 'revised';
+    pluralName: 'reviseds';
+    displayName: 'Revised';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    user: Attribute.Relation<
+      'api::revised.revised',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    > &
+      Attribute.Unique;
+    products: Attribute.Relation<
+      'api::revised.revised',
+      'oneToMany',
+      'api::product.product'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::revised.revised',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::revised.revised',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1481,6 +1522,7 @@ declare module '@strapi/types' {
       'api::product.product': ApiProductProduct;
       'api::product-description.product-description': ApiProductDescriptionProductDescription;
       'api::review.review': ApiReviewReview;
+      'api::revised.revised': ApiRevisedRevised;
     }
   }
 }
