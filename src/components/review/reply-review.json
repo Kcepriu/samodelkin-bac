@@ -8,8 +8,7 @@
   "attributes": {
     "content": {
       "type": "text",
-      "required": true,
-      "default": ""
+      "required": true
     },
     "date": {
       "type": "datetime"
@@ -20,19 +19,21 @@
       "required": true
     },
     "shortContent": {
-      "type": "string",
-      "default": ""
+      "type": "string"
     },
     "firstName": {
       "type": "string",
       "required": true,
-      "maxLength": 20,
-      "default": ""
+      "maxLength": 20
     },
     "lastName": {
       "type": "string",
-      "maxLength": 20,
-      "default": ""
+      "maxLength": 20
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
     }
   }
 }

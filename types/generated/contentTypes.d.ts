@@ -906,20 +906,21 @@ export interface ApiCartCart extends Schema.CollectionType {
     singularName: 'cart';
     pluralName: 'carts';
     displayName: 'Cart';
+    description: '';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     user: Attribute.Relation<
       'api::cart.cart',
       'oneToOne',
       'plugin::users-permissions.user'
-    >;
+    > &
+      Attribute.Unique;
     products: Attribute.Component<'order.products-order', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::cart.cart', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::cart.cart', 'oneToOne', 'admin::user'> &
@@ -1411,27 +1412,30 @@ export interface ApiReviewReview extends Schema.CollectionType {
       }> &
       Attribute.DefaultTo<5>;
     content: Attribute.Text & Attribute.Required;
-    advantages: Attribute.Text & Attribute.DefaultTo<''>;
-    disAdvantages: Attribute.Text & Attribute.DefaultTo<''>;
+    advantages: Attribute.Text;
+    disAdvantages: Attribute.Text;
     product: Attribute.Relation<
       'api::review.review',
       'oneToOne',
       'api::product.product'
     >;
-    shortContent: Attribute.String & Attribute.DefaultTo<''>;
+    shortContent: Attribute.String;
     replyReview: Attribute.Component<'review.reply-review', true>;
     isPublication: Attribute.Boolean & Attribute.DefaultTo<false>;
     firstName: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 20;
-      }> &
-      Attribute.DefaultTo<''>;
+      }>;
     lastName: Attribute.String &
       Attribute.SetMinMaxLength<{
         maxLength: 20;
-      }> &
-      Attribute.DefaultTo<''>;
+      }>;
+    user: Attribute.Relation<
+      'api::review.review',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
