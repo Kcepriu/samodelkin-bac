@@ -165,23 +165,26 @@ export interface ReviewReplyReview extends Schema.Component {
     description: '';
   };
   attributes: {
-    content: Attribute.Text & Attribute.Required & Attribute.DefaultTo<''>;
+    content: Attribute.Text & Attribute.Required;
     date: Attribute.DateTime;
     isPublication: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<false>;
-    shortContent: Attribute.String & Attribute.DefaultTo<''>;
+    shortContent: Attribute.String;
     firstName: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 20;
-      }> &
-      Attribute.DefaultTo<''>;
+      }>;
     lastName: Attribute.String &
       Attribute.SetMinMaxLength<{
         maxLength: 20;
-      }> &
-      Attribute.DefaultTo<''>;
+      }>;
+    user: Attribute.Relation<
+      'review.reply-review',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
   };
 }
 

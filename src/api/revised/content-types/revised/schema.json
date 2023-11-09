@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reviseds",
+  "info": {
+    "singularName": "revised",
+    "pluralName": "reviseds",
+    "displayName": "Revised",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "unique": true
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    }
+  }
+}
