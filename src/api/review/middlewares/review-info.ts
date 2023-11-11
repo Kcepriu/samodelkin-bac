@@ -1,8 +1,5 @@
-/**
- * `review-info` middleware
- */
-
 import { Strapi } from "@strapi/strapi";
+import { fieldsProductShort } from "../../../constants/fieldsMiddleware";
 
 export default (config, { strapi }: { strapi: Strapi }) => {
   return async (ctx, next) => {
@@ -11,28 +8,15 @@ export default (config, { strapi }: { strapi: Strapi }) => {
       //   fields: ["fullName"],
       // },
       product: {
-        fields: ["code", "slug", "descrition", "title"],
+        fields: fieldsProductShort,
         populate: {
           images: {
-            fields: [
-              "id",
-              "name",
-              "alternativeText",
-              "width",
-              "height",
-              "hash",
-              "ext",
-              "mime",
-              "size",
-              "url",
-              "previewUrl",
-              "formats",
-            ],
+            fields: ["*"],
           },
         },
       },
       replyReview: {
-        fields: ["content", "date", "isPublication", "firstName", "lastName"],
+        fields: ["*"],
         // populate: {
         //   user: {
         //     fields: ["fullName"],

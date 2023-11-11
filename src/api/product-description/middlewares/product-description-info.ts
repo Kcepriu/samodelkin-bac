@@ -1,35 +1,19 @@
-/**
- * `product-description-info` middleware
- */
-
 import { Strapi } from "@strapi/strapi";
+import { fieldsProductShort } from "../../../constants/fieldsMiddleware";
 
 export default (config, { strapi }: { strapi: Strapi }) => {
   // Add your own logic here.
   return async (ctx, next) => {
     ctx.query.populate = {
       product: {
-        fields: ["id", "slug"],
+        fields: fieldsProductShort,
       },
       content: {
         fields: ["*"],
 
         populate: {
           image: {
-            fields: [
-              "id",
-              "name",
-              "alternativeText",
-              "width",
-              "height",
-              "hash",
-              "ext",
-              "mime",
-              "size",
-              "url",
-              "previewUrl",
-              "formats",
-            ],
+            fields: ["*"],
           },
         },
       },

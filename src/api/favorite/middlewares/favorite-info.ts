@@ -1,29 +1,17 @@
 import { Strapi } from "@strapi/strapi";
+import { fieldsProductShort } from "../../../constants/fieldsMiddleware";
 
 export default (config, { strapi }: { strapi: Strapi }) => {
   return async (ctx, next) => {
     ctx.query.populate = {
       products: {
-        fields: ["code", "slug", "descrition", "title"],
+        fields: fieldsProductShort,
         populate: {
           images: {
-            fields: [
-              "id",
-              "name",
-              "alternativeText",
-              "width",
-              "height",
-              "hash",
-              "ext",
-              "mime",
-              "size",
-              "url",
-              "previewUrl",
-              "formats",
-            ],
+            fields: ["*"],
           },
           languages: {
-            fields: ["language"],
+            fields: ["*"],
           },
         },
       },

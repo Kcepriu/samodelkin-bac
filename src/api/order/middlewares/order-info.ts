@@ -5,7 +5,6 @@ export default (config, { strapi }: { strapi: Strapi }) => {
   return async (ctx, next) => {
     ctx.query.populate = {
       fields: ["*"],
-
       products: {
         fields: ["*"],
         populate: {
@@ -19,6 +18,14 @@ export default (config, { strapi }: { strapi: Strapi }) => {
                 fields: ["*"],
               },
             },
+          },
+        },
+      },
+      adresDelivery: {
+        fields: ["*"],
+        populate: {
+          delivery_service: {
+            fields: ["*"],
           },
         },
       },

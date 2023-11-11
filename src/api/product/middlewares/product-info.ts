@@ -8,35 +8,22 @@ export default (config, { strapi }: { strapi: Strapi }) => {
   return async (ctx, next) => {
     ctx.query.populate = {
       categories: {
-        fields: ["id", "title", "slug"],
+        fields: ["*"],
       },
       images: {
-        fields: [
-          "id",
-          "name",
-          "alternativeText",
-          "width",
-          "height",
-          "hash",
-          "ext",
-          "mime",
-          "size",
-          "url",
-          "previewUrl",
-          "formats",
-        ],
+        fields: ["*"],
       },
       colorBox: {
-        fields: ["title", "color"],
+        fields: ["*"],
       },
       videos: {
-        fields: ["url", "active", "title"],
+        fields: ["*"],
       },
       languages: {
-        fields: ["language"],
+        fields: ["*"],
       },
       manual: {
-        fields: ["file", "description"],
+        fields: ["*"],
         populate: {
           file: { fields: ["*"] },
         },
