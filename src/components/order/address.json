@@ -1,12 +1,12 @@
 {
-  "collectionName": "components_order_adresses",
+  "collectionName": "components_order_addresses",
   "info": {
-    "displayName": "Adress",
+    "displayName": "Address",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "cyty": {
+    "city": {
       "type": "string",
       "required": true
     },

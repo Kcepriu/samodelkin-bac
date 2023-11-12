@@ -1252,7 +1252,7 @@ export interface ApiOrderOrder extends Schema.CollectionType {
       'oneToOne',
       'plugin::users-permissions.user'
     >;
-    adresDelivery: Attribute.Component<'order.adress'>;
+    addressDelivery: Attribute.Component<'order.address'>;
     products: Attribute.Component<'order.products-order', true>;
     numberPhone: Attribute.String &
       Attribute.Required &

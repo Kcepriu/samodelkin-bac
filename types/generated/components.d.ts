@@ -70,18 +70,18 @@ export interface ArticlesTitleArticle extends Schema.Component {
   };
 }
 
-export interface OrderAdress extends Schema.Component {
-  collectionName: 'components_order_adresses';
+export interface OrderAddress extends Schema.Component {
+  collectionName: 'components_order_addresses';
   info: {
-    displayName: 'Adress';
+    displayName: 'Address';
     description: '';
   };
   attributes: {
-    cyty: Attribute.String & Attribute.Required;
+    city: Attribute.String & Attribute.Required;
     branchNumber: Attribute.String;
     street: Attribute.String;
     delivery_service: Attribute.Relation<
-      'order.adress',
+      'order.address',
       'oneToOne',
       'api::delivery-service.delivery-service'
     >;
@@ -247,7 +247,7 @@ declare module '@strapi/types' {
       'articles.content': ArticlesContent;
       'articles.image': ArticlesImage;
       'articles.title-article': ArticlesTitleArticle;
-      'order.adress': OrderAdress;
+      'order.address': OrderAddress;
       'order.products-order': OrderProductsOrder;
       'product.languages': ProductLanguages;
       'product.manual': ProductManual;

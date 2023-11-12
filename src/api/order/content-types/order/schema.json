@@ -23,10 +23,10 @@
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
     },
-    "adresDelivery": {
+    "addressDelivery": {
       "type": "component",
       "repeatable": false,
-      "component": "order.adress"
+      "component": "order.address"
     },
     "products": {
       "type": "component",
