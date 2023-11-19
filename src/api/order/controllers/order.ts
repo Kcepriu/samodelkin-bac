@@ -21,6 +21,8 @@ export default factories.createCoreController(
             }
           : filterUser;
 
+      sanitizedQueryParams.sort = { id: "desc" };
+
       const { results, pagination } = await strapi
         .service("api::order.order")
         .find(sanitizedQueryParams);
@@ -59,7 +61,7 @@ export default factories.createCoreController(
       const data = ctx.request.body;
       const files = ctx.request.files;
 
-      data.data.user = ctx.state.user.id;
+      data.data.user = ctx.state?.user?.id || null;
       if (!data.data.date) data.data.date = Date.now();
 
       const results = await strapi
