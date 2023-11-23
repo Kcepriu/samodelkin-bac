@@ -1284,12 +1284,11 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     >;
     addressDelivery: Attribute.Component<'order.address'>;
     products: Attribute.Component<'order.products-order', true>;
-    numberPhone: Attribute.String &
-      Attribute.Required &
-      Attribute.DefaultTo<''>;
+    numberPhone: Attribute.String & Attribute.Required;
     email: Attribute.Email;
-    name: Attribute.String & Attribute.Required & Attribute.DefaultTo<''>;
-    comment: Attribute.Text & Attribute.DefaultTo<''>;
+    name: Attribute.String & Attribute.Required;
+    comment: Attribute.Text;
+    languages: Attribute.Component<'product.languages'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

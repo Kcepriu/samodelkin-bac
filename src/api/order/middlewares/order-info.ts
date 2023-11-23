@@ -21,6 +21,9 @@ export default (config, { strapi }: { strapi: Strapi }) => {
           },
         },
       },
+      languages: {
+        fields: ["*"],
+      },
       adresDelivery: {
         fields: ["*"],
         populate: {

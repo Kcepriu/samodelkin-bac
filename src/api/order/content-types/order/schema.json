@@ -35,20 +35,22 @@
     },
     "numberPhone": {
       "type": "string",
-      "required": true,
-      "default": ""
+      "required": true
     },
     "email": {
       "type": "email"
     },
     "name": {
       "type": "string",
-      "required": true,
-      "default": ""
+      "required": true
     },
     "comment": {
-      "type": "text",
-      "default": ""
+      "type": "text"
+    },
+    "languages": {
+      "type": "component",
+      "repeatable": false,
+      "component": "product.languages"
     }
   }
 }
