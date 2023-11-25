@@ -93,6 +93,7 @@ export interface OrderProductsOrder extends Schema.Component {
   info: {
     displayName: 'ProductsOrder';
     icon: 'bulletList';
+    description: '';
   };
   attributes: {
     product: Attribute.Relation<
@@ -115,6 +116,7 @@ export interface OrderProductsOrder extends Schema.Component {
       Attribute.SetMinMax<{
         min: 0;
       }>;
+    language: Attribute.Component<'product.languages'>;
   };
 }
 

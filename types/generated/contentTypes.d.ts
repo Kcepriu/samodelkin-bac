@@ -1288,7 +1288,6 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     email: Attribute.Email;
     name: Attribute.String & Attribute.Required;
     comment: Attribute.Text;
-    languages: Attribute.Component<'product.languages'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

@@ -46,11 +46,6 @@
     },
     "comment": {
       "type": "text"
-    },
-    "languages": {
-      "type": "component",
-      "repeatable": false,
-      "component": "product.languages"
     }
   }
 }

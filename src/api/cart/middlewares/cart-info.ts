@@ -20,6 +20,9 @@ export default (config, { strapi }: { strapi: Strapi }) => {
               },
             },
           },
+          language: {
+            fields: ["*"],
+          },
         },
       },
     };

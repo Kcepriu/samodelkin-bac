@@ -4,11 +4,8 @@ import { fieldsProductShort } from "../../../constants/fieldsMiddleware";
 export default (config, { strapi }: { strapi: Strapi }) => {
   return async (ctx, next) => {
     ctx.query.populate = {
-      // user: {
-      //   fields: ["fullName"],
-      // },
       product: {
-        fields: fieldsProductShort,
+        fields: ["*"],
         populate: {
           images: {
             fields: ["*"],
@@ -17,11 +14,6 @@ export default (config, { strapi }: { strapi: Strapi }) => {
       },
       replyReview: {
         fields: ["*"],
-        // populate: {
-        //   user: {
-        //     fields: ["fullName"],
-        //   },
-        // },
       },
     };
 

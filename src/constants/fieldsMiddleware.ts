@@ -1,1 +1,7 @@
-export const fieldsProductShort = ["code", "slug", "descrition", "title"];
+export const fieldsProductShort = [
+  "code",
+  "slug",
+  "descrition",
+  "title",
+  "price",
+];
