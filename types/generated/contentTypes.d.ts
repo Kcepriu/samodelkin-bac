@@ -1137,6 +1137,7 @@ export interface ApiDeliveryServiceDeliveryService
     postOfficeDelivery: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<false>;
+    logo: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
