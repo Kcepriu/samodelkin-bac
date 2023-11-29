@@ -4,26 +4,13 @@ export default (config, { strapi }: { strapi: Strapi }) => {
   return async (ctx, next) => {
     ctx.query.populate = {
       products: {
-        fields: ["code", "slug", "descrition", "title"],
+        fields: ["*"],
         populate: {
           images: {
-            fields: [
-              "id",
-              "name",
-              "alternativeText",
-              "width",
-              "height",
-              "hash",
-              "ext",
-              "mime",
-              "size",
-              "url",
-              "previewUrl",
-              "formats",
-            ],
+            fields: ["*"],
           },
           languages: {
-            fields: ["language"],
+            fields: ["*"],
           },
         },
       },

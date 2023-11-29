@@ -1,43 +1,19 @@
-/**
- * `review-info` middleware
- */
-
 import { Strapi } from "@strapi/strapi";
+import { fieldsProductShort } from "../../../constants/fieldsMiddleware";
 
 export default (config, { strapi }: { strapi: Strapi }) => {
   return async (ctx, next) => {
     ctx.query.populate = {
-      // user: {
-      //   fields: ["fullName"],
-      // },
       product: {
-        fields: ["code", "slug", "descrition", "title"],
+        fields: ["*"],
         populate: {
           images: {
-            fields: [
-              "id",
-              "name",
-              "alternativeText",
-              "width",
-              "height",
-              "hash",
-              "ext",
-              "mime",
-              "size",
-              "url",
-              "previewUrl",
-              "formats",
-            ],
+            fields: ["*"],
           },
         },
       },
       replyReview: {
-        fields: ["content", "date", "isPublication", "firstName", "lastName"],
-        // populate: {
-        //   user: {
-        //     fields: ["fullName"],
-        //   },
-        // },
+        fields: ["*"],
       },
     };
 

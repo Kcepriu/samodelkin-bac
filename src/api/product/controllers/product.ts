@@ -51,5 +51,26 @@ export default factories.createCoreController(
 
       return this.transformResponse(sanitizedResults, { pagination });
     },
+
+    async getProductsByList(ctx) {
+      const data = ctx.request.body;
+      const sanitizedQueryParams = await this.sanitizeQuery(ctx);
+      console.log("🚀 ~ sanitizedQueryParams:", sanitizedQueryParams);
+
+      sanitizedQueryParams.filters = {
+        id: {
+          $in: data,
+        },
+      };
+
+      const entries = await strapi.entityService.findMany(
+        "api::product.product",
+        sanitizedQueryParams
+      );
+
+      const sanitizedResults = await this.sanitizeOutput(entries, ctx);
+
+      return this.transformResponse(sanitizedResults);
+    },
   })
 );

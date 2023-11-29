@@ -2,7 +2,8 @@
   "collectionName": "components_order_products_orders",
   "info": {
     "displayName": "ProductsOrder",
-    "icon": "bulletList"
+    "icon": "bulletList",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -25,6 +26,11 @@
       "type": "decimal",
       "required": true,
       "min": 0
+    },
+    "language": {
+      "type": "component",
+      "repeatable": false,
+      "component": "product.languages"
     }
   }
 }

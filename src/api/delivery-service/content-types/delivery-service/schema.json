@@ -38,6 +38,13 @@
       "type": "boolean",
       "default": false,
       "required": true
+    },
+    "logo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

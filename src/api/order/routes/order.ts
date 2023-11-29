@@ -6,11 +6,18 @@ import { factories } from "@strapi/strapi";
 
 export default factories.createCoreRouter("api::order.order", {
   config: {
-    find: {},
-    findOne: {},
-    create: {},
+    find: {
+      middlewares: ["api::order.order-info"],
+    },
+    findOne: {
+      middlewares: ["api::order.order-info"],
+    },
+    create: {
+      middlewares: ["api::order.order-info"],
+    },
     update: {
       middlewares: [
+        "api::order.order-info",
         {
           name: "global::is-owner ",
           config: { uid: "api::order.order" },
@@ -19,6 +26,7 @@ export default factories.createCoreRouter("api::order.order", {
     },
     delete: {
       middlewares: [
+        "api::order.order-info",
         {
           name: "global::is-owner ",
           config: { uid: "api::order.order" },

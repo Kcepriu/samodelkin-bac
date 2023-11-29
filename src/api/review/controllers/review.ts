@@ -135,5 +135,29 @@ export default factories.createCoreController(
       const sanitizedResults = await this.sanitizeOutput(results.response, ctx);
       return this.transformResponse(sanitizedResults, {});
     },
+    async getInfoProductReview(ctx) {
+      const { productId } = ctx.params;
+
+      const results = await strapi.db
+        .connection("reviews")
+        .join(
+          "reviews_product_links",
+          "reviews.id",
+          "=",
+          "reviews_product_links.review_id"
+        )
+        .where({
+          is_publication: true,
+          "reviews_product_links.product_id": productId,
+        })
+        .select(
+          strapi.db.connection.raw("COUNT(reviews.id) as count"),
+          strapi.db.connection.raw("SUM(rating) as sum"),
+          strapi.db.connection.raw("AVG(rating) as avg")
+        );
+
+      const sanitizedResults = await this.sanitizeOutput(results, ctx);
+      return this.transformResponse(sanitizedResults);
+    },
   })
 );

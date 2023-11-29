@@ -23,10 +23,10 @@
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
     },
-    "adresDelivery": {
+    "addressDelivery": {
       "type": "component",
       "repeatable": false,
-      "component": "order.adress"
+      "component": "order.address"
     },
     "products": {
       "type": "component",
@@ -35,20 +35,17 @@
     },
     "numberPhone": {
       "type": "string",
-      "required": true,
-      "default": ""
+      "required": true
     },
     "email": {
       "type": "email"
     },
     "name": {
       "type": "string",
-      "required": true,
-      "default": ""
+      "required": true
     },
     "comment": {
-      "type": "text",
-      "default": ""
+      "type": "text"
     }
   }
 }
