@@ -77,7 +77,11 @@ export interface OrderAddress extends Schema.Component {
     description: '';
   };
   attributes: {
-    city: Attribute.String & Attribute.Required;
+    city: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 250;
+      }>;
     branchNumber: Attribute.String;
     street: Attribute.String;
     delivery_service: Attribute.Relation<
@@ -85,6 +89,26 @@ export interface OrderAddress extends Schema.Component {
       'oneToOne',
       'api::delivery-service.delivery-service'
     >;
+    idCity: Attribute.String;
+    postOffice: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 250;
+      }>;
+    idPostOffice: Attribute.String;
+  };
+}
+
+export interface OrderContactInformation extends Schema.Component {
+  collectionName: 'components_order_contact_informations';
+  info: {
+    displayName: 'contactInformation';
+    description: '';
+  };
+  attributes: {
+    firstName: Attribute.String;
+    lastName: Attribute.String;
+    phoneNumber: Attribute.String;
+    email: Attribute.Email;
   };
 }
 
@@ -250,6 +274,7 @@ declare module '@strapi/types' {
       'articles.image': ArticlesImage;
       'articles.title-article': ArticlesTitleArticle;
       'order.address': OrderAddress;
+      'order.contact-information': OrderContactInformation;
       'order.products-order': OrderProductsOrder;
       'product.languages': ProductLanguages;
       'product.manual': ProductManual;

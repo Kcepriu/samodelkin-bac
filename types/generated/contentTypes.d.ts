@@ -1285,10 +1285,8 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     >;
     addressDelivery: Attribute.Component<'order.address'>;
     products: Attribute.Component<'order.products-order', true>;
-    numberPhone: Attribute.String & Attribute.Required;
-    email: Attribute.Email;
-    name: Attribute.String & Attribute.Required;
     comment: Attribute.Text;
+    contactInformation: Attribute.Component<'order.contact-information'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

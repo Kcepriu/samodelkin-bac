@@ -8,7 +8,8 @@
   "attributes": {
     "city": {
       "type": "string",
-      "required": true
+      "required": true,
+      "maxLength": 250
     },
     "branchNumber": {
       "type": "string"
@@ -20,6 +21,16 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::delivery-service.delivery-service"
+    },
+    "idCity": {
+      "type": "string"
+    },
+    "postOffice": {
+      "type": "string",
+      "maxLength": 250
+    },
+    "idPostOffice": {
+      "type": "string"
     }
   }
 }
