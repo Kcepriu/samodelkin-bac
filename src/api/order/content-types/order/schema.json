@@ -33,19 +33,13 @@
       "repeatable": true,
       "component": "order.products-order"
     },
-    "numberPhone": {
-      "type": "string",
-      "required": true
-    },
-    "email": {
-      "type": "email"
-    },
-    "name": {
-      "type": "string",
-      "required": true
-    },
     "comment": {
       "type": "text"
+    },
+    "contactInformation": {
+      "type": "component",
+      "repeatable": false,
+      "component": "order.contact-information"
     }
   }
 }

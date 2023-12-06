@@ -55,7 +55,6 @@ export default factories.createCoreController(
     async getProductsByList(ctx) {
       const data = ctx.request.body;
       const sanitizedQueryParams = await this.sanitizeQuery(ctx);
-      console.log("🚀 ~ sanitizedQueryParams:", sanitizedQueryParams);
 
       sanitizedQueryParams.filters = {
         id: {

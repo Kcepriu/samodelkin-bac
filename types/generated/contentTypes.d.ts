@@ -900,6 +900,41 @@ export interface ApiAboutUsSectionAboutUsSection extends Schema.SingleType {
   };
 }
 
+export interface ApiAboutUserAboutUser extends Schema.CollectionType {
+  collectionName: 'about_users';
+  info: {
+    singularName: 'about-user';
+    pluralName: 'about-users';
+    displayName: 'AboutUser';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    user: Attribute.Relation<
+      'api::about-user.about-user',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    contactInformation: Attribute.Component<'order.contact-information'>;
+    addressDelivery: Attribute.Component<'order.address'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::about-user.about-user',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::about-user.about-user',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCartCart extends Schema.CollectionType {
   collectionName: 'carts';
   info: {
@@ -1285,10 +1320,8 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     >;
     addressDelivery: Attribute.Component<'order.address'>;
     products: Attribute.Component<'order.products-order', true>;
-    numberPhone: Attribute.String & Attribute.Required;
-    email: Attribute.Email;
-    name: Attribute.String & Attribute.Required;
     comment: Attribute.Text;
+    contactInformation: Attribute.Component<'order.contact-information'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1542,6 +1575,7 @@ declare module '@strapi/types' {
       'plugin::strapi-stripe.ss-payment': PluginStrapiStripeSsPayment;
       'plugin::telegram-bot-strapi.telegram': PluginTelegramBotStrapiTelegram;
       'api::about-us-section.about-us-section': ApiAboutUsSectionAboutUsSection;
+      'api::about-user.about-user': ApiAboutUserAboutUser;
       'api::cart.cart': ApiCartCart;
       'api::category.category': ApiCategoryCategory;
       'api::category-description.category-description': ApiCategoryDescriptionCategoryDescription;

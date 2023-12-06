@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "about_users",
+  "info": {
+    "singularName": "about-user",
+    "pluralName": "about-users",
+    "displayName": "AboutUser"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "contactInformation": {
+      "type": "component",
+      "repeatable": false,
+      "component": "order.contact-information"
+    },
+    "addressDelivery": {
+      "type": "component",
+      "repeatable": false,
+      "component": "order.address"
+    }
+  }
+}
