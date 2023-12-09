@@ -660,7 +660,9 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
-    fullName: Attribute.String & Attribute.Required;
+    firstName: Attribute.String & Attribute.DefaultTo<''>;
+    lastName: Attribute.String & Attribute.DefaultTo<''>;
+    phoneNumber: Attribute.String & Attribute.DefaultTo<''>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

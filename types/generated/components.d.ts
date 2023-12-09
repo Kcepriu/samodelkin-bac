@@ -81,20 +81,22 @@ export interface OrderAddress extends Schema.Component {
       Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 250;
-      }>;
-    branchNumber: Attribute.String;
-    street: Attribute.String;
+      }> &
+      Attribute.DefaultTo<''>;
+    branchNumber: Attribute.String & Attribute.DefaultTo<''>;
+    street: Attribute.String & Attribute.DefaultTo<''>;
     delivery_service: Attribute.Relation<
       'order.address',
       'oneToOne',
       'api::delivery-service.delivery-service'
     >;
-    idCity: Attribute.String;
+    idCity: Attribute.String & Attribute.DefaultTo<''>;
     postOffice: Attribute.String &
       Attribute.SetMinMaxLength<{
         maxLength: 250;
-      }>;
-    idPostOffice: Attribute.String;
+      }> &
+      Attribute.DefaultTo<''>;
+    idPostOffice: Attribute.String & Attribute.DefaultTo<''>;
   };
 }
 
@@ -105,10 +107,10 @@ export interface OrderContactInformation extends Schema.Component {
     description: '';
   };
   attributes: {
-    firstName: Attribute.String;
-    lastName: Attribute.String;
-    phoneNumber: Attribute.String;
-    email: Attribute.Email;
+    firstName: Attribute.String & Attribute.DefaultTo<''>;
+    lastName: Attribute.String & Attribute.DefaultTo<''>;
+    phoneNumber: Attribute.String & Attribute.DefaultTo<''>;
+    email: Attribute.Email & Attribute.DefaultTo<''>;
   };
 }
 
@@ -166,7 +168,7 @@ export interface ProductManual extends Schema.Component {
   };
   attributes: {
     file: Attribute.Media;
-    description: Attribute.String;
+    description: Attribute.String & Attribute.DefaultTo<''>;
   };
 }
 

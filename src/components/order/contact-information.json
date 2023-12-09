@@ -7,16 +7,20 @@
   "options": {},
   "attributes": {
     "firstName": {
-      "type": "string"
+      "type": "string",
+      "default": ""
     },
     "lastName": {
-      "type": "string"
+      "type": "string",
+      "default": ""
     },
     "phoneNumber": {
-      "type": "string"
+      "type": "string",
+      "default": ""
     },
     "email": {
-      "type": "email"
+      "type": "email",
+      "default": ""
     }
   }
 }

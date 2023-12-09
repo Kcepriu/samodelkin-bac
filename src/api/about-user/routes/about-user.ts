@@ -12,5 +12,8 @@ export default factories.createCoreRouter("api::about-user.about-user", {
     create: {
       middlewares: ["api::about-user.about-user-info"],
     },
+    delete: {
+      middlewares: ["api::about-user.about-user-info"],
+    },
   },
 });
