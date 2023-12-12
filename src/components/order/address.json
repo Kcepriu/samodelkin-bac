@@ -9,13 +9,16 @@
     "city": {
       "type": "string",
       "required": true,
-      "maxLength": 250
+      "maxLength": 250,
+      "default": ""
     },
     "branchNumber": {
-      "type": "string"
+      "type": "string",
+      "default": ""
     },
     "street": {
-      "type": "string"
+      "type": "string",
+      "default": ""
     },
     "delivery_service": {
       "type": "relation",
@@ -23,14 +26,17 @@
       "target": "api::delivery-service.delivery-service"
     },
     "idCity": {
-      "type": "string"
+      "type": "string",
+      "default": ""
     },
     "postOffice": {
       "type": "string",
-      "maxLength": 250
+      "maxLength": 250,
+      "default": ""
     },
     "idPostOffice": {
-      "type": "string"
+      "type": "string",
+      "default": ""
     }
   }
 }

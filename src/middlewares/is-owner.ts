@@ -3,6 +3,7 @@ export default (config, { strapi }) => {
     const { uid } = config;
     const { id } = ctx.params;
     const filters = { user: ctx.state.user.id, id };
+    console.log("Test middleware");
 
     const { results } = await strapi.service(uid).find({ filters });
 

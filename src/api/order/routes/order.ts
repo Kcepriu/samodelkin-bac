@@ -19,7 +19,7 @@ export default factories.createCoreRouter("api::order.order", {
       middlewares: [
         "api::order.order-info",
         {
-          name: "global::is-owner ",
+          name: "global::is-owner",
           config: { uid: "api::order.order" },
         },
       ],
@@ -28,7 +28,7 @@ export default factories.createCoreRouter("api::order.order", {
       middlewares: [
         "api::order.order-info",
         {
-          name: "global::is-owner ",
+          name: "global::is-owner",
           config: { uid: "api::order.order" },
         },
       ],

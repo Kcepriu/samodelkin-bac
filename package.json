@@ -22,6 +22,7 @@
     "custom-slug": "^2.1.1",
     "joi": "^17.10.2",
     "pg": "8.8.0",
+    "strapi-plugin-email-designer": "^2.2.0",
     "strapi-plugin-import-export-entries": "^1.21.1",
     "strapi-stripe": "^3.4.1",
     "telegram-bot-strapi": "^1.0.1"
