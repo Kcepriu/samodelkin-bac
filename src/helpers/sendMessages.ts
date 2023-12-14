@@ -3,6 +3,7 @@ import { IOrder } from "../types/order.type";
 
 import { FRONTEND_ROUTES } from "../constants/app-keys.const";
 import { formatDateOrder } from "./formatDateTime";
+import { formatPrice } from "./formatNumber";
 
 const getDataOrderToSend = (strapi: Strapi, order: IOrder) => {
   const url_front_end = strapi.config.get("server.url_front_end", "");
@@ -11,7 +12,6 @@ const getDataOrderToSend = (strapi: Strapi, order: IOrder) => {
   const { products, date, totalSum, contactInformation, addressDelivery } =
     order.attributes;
 
-  console.log("🚀 ~ contactInformation:", contactInformation);
   // if (!contactInformation || !contactInformation?.email) return;
 
   const order_date = formatDateOrder(date);
@@ -38,7 +38,14 @@ const getDataOrderToSend = (strapi: Strapi, order: IOrder) => {
     const urlProduct = `${url_product}/${
       product?.data?.attributes?.slug || ""
     }`;
-    return { count, sum, price, title, urlImage, urlProduct };
+    return {
+      count,
+      sum: formatPrice(sum),
+      price: formatPrice(price),
+      title,
+      urlImage,
+      urlProduct,
+    };
   });
 
   return {
@@ -56,20 +63,16 @@ const getDataOrderToSend = (strapi: Strapi, order: IOrder) => {
       city,
       postOffice,
       delivery_service,
-      totalSum,
+      totalSum: formatPrice(totalSum),
     },
   };
 };
 
 export const sendOrderToMail = async (strapi: Strapi, order: IOrder) => {
-  console.log("🚀 ~ order:", order);
-  const result = getDataOrderToSend(strapi, order);
-  console.log("🚀 ~ result:", result);
-
   const { emailTo, order_number, data } = getDataOrderToSend(strapi, order);
 
   try {
-    const { composedHtml = "", composedText = "" } = await strapi.plugins[
+    const { composedText = "" } = await strapi.plugins[
       "email-designer"
     ].services.email.compose({
       templateReferenceId: 2,
