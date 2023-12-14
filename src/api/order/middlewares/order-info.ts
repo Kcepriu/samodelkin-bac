@@ -19,18 +19,22 @@ export default (config, { strapi }: { strapi: Strapi }) => {
               },
             },
           },
+          language: {
+            fields: ["*"],
+          },
         },
       },
-      languages: {
-        fields: ["*"],
-      },
-      adresDelivery: {
+
+      addressDelivery: {
         fields: ["*"],
         populate: {
           delivery_service: {
             fields: ["*"],
           },
         },
+      },
+      contactInformation: {
+        fields: ["*"],
       },
     };
 

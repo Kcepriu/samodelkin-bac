@@ -13,7 +13,7 @@ export default factories.createCoreRouter("api::order.order", {
       middlewares: ["api::order.order-info"],
     },
     create: {
-      middlewares: ["api::order.order-info"],
+      middlewares: ["api::order.order-info", "api::order.order-send-message"],
     },
     update: {
       middlewares: [
