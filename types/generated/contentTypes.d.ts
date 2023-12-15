@@ -660,9 +660,14 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
-    firstName: Attribute.String & Attribute.DefaultTo<''>;
-    lastName: Attribute.String & Attribute.DefaultTo<''>;
-    phoneNumber: Attribute.String & Attribute.DefaultTo<''>;
+    firstName: Attribute.String;
+    lastName: Attribute.String;
+    phoneNumber: Attribute.String;
+    additional_roles: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToMany',
+      'api::additional-role.additional-role'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -979,6 +984,38 @@ export interface ApiAboutUserAboutUser extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::about-user.about-user',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiAdditionalRoleAdditionalRole extends Schema.CollectionType {
+  collectionName: 'additional_roles';
+  info: {
+    singularName: 'additional-role';
+    pluralName: 'additional-roles';
+    displayName: 'AdditionalRole';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    name: Attribute.String;
+    type: Attribute.Enumeration<['createReplyReview', 'feedbackModerator']> &
+      Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::additional-role.additional-role',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::additional-role.additional-role',
       'oneToOne',
       'admin::user'
     > &
@@ -1628,6 +1665,7 @@ declare module '@strapi/types' {
       'plugin::telegram-bot-strapi.telegram': PluginTelegramBotStrapiTelegram;
       'api::about-us-section.about-us-section': ApiAboutUsSectionAboutUsSection;
       'api::about-user.about-user': ApiAboutUserAboutUser;
+      'api::additional-role.additional-role': ApiAdditionalRoleAdditionalRole;
       'api::cart.cart': ApiCartCart;
       'api::category.category': ApiCategoryCategory;
       'api::category-description.category-description': ApiCategoryDescriptionCategoryDescription;

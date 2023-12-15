@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "additional_roles",
+  "info": {
+    "singularName": "additional-role",
+    "pluralName": "additional-roles",
+    "displayName": "AdditionalRole",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "createReplyReview",
+        "feedbackModerator"
+      ],
+      "required": true
+    }
+  }
+}

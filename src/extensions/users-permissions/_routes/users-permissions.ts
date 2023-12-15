@@ -10,5 +10,14 @@ export default factories.createCoreRouter("plugin::users-permissions.user", {
         },
       ],
     },
+
+    find: {
+      middlewares: [
+        {
+          name: "global::users-info",
+          config: { uid: "plugin::users-permissions.user" },
+        },
+      ],
+    },
   },
 });
