@@ -7,12 +7,14 @@ import { factories } from "@strapi/strapi";
 export default factories.createCoreController(
   "api::review.review",
   ({ strapi }) => ({
+    // * create
     async create(ctx) {
       const query = ctx.request.query;
       const data = ctx.request.body;
       const files = ctx.request.files;
 
-      // data.data.user = ctx.state.user.id;
+      if (ctx.state.user) data.data.user = ctx.state.user.id;
+
       data.data.date = Date.now();
       data.data.isPublication = false;
       data.data.shortContent = data.data.content.slice(0, 25);
@@ -26,14 +28,15 @@ export default factories.createCoreController(
       return this.transformResponse(sanitizedResults, {});
     },
 
+    // * replyToReview
     async replyToReview(ctx) {
       const { id } = ctx.params;
       const data = ctx.request.body;
       const query = ctx.request.query;
 
-      // data.data.user = ctx.state.user.id;
+      if (ctx.state.user) data.data.user = ctx.state.user.id;
       data.data.date = Date.now();
-      data.data.isPublication = false;
+      data.data.isPublication = true;
       data.data.shortContent = data.data.content.slice(0, 25);
 
       const foundReview = await strapi
@@ -44,9 +47,6 @@ export default factories.createCoreController(
 
       const { replyReview } = foundReview;
       replyReview.push(data.data);
-
-      //  const sanitizedQueryParams = await this.sanitizeQuery(ctx);
-      //  sanitizedQueryParams.filters = { id };
 
       const results = await strapi.service("api::review.review").update(id, {
         ...query,
@@ -60,6 +60,7 @@ export default factories.createCoreController(
       return this.transformResponse(sanitizedResults, {});
     },
 
+    // * changeStatusReview
     async changeStatusReview(ctx) {
       const { id } = ctx.params;
       const data = ctx.request.body;
@@ -84,6 +85,7 @@ export default factories.createCoreController(
       return this.transformResponse(sanitizedResults, {});
     },
 
+    // * changeReplyToReview
     async changeReplyToReview(ctx) {
       const { id, idReply } = ctx.params;
       const data = ctx.request.body;
@@ -121,6 +123,8 @@ export default factories.createCoreController(
 
       return this.transformResponse(sanitizedResults, {});
     },
+
+    // * lastReviews
     async lastReviews(ctx) {
       const { category, count, populate } = ctx.request.query;
 
@@ -135,6 +139,30 @@ export default factories.createCoreController(
       const sanitizedResults = await this.sanitizeOutput(results.response, ctx);
       return this.transformResponse(sanitizedResults, {});
     },
+    // * myReviews
+    async myReviews(ctx) {
+      const sanitizedQueryParams = await this.sanitizeQuery(ctx);
+      const filterUser = { user: ctx.state.user.id };
+
+      sanitizedQueryParams.filters =
+        sanitizedQueryParams.filters &&
+        typeof sanitizedQueryParams.filters === "object"
+          ? {
+              ...sanitizedQueryParams.filters,
+              ...filterUser,
+            }
+          : filterUser;
+
+      const { results, pagination } = await strapi
+        .service("api::review.review")
+        .find(sanitizedQueryParams);
+
+      const sanitizedResults = await this.sanitizeOutput(results, ctx);
+
+      return this.transformResponse(sanitizedResults, { pagination });
+    },
+
+    // * getInfoProductReview
     async getInfoProductReview(ctx) {
       const { productId } = ctx.params;
 

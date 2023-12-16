@@ -93,6 +93,10 @@
       "type": "integer",
       "max": 100,
       "default": 0
+    },
+    "salesLeader": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

@@ -8,6 +8,16 @@ export default {
         middlewares: ["api::review.review-info"],
       },
     },
+
+    {
+      method: "GET",
+      path: "/my-reviews",
+      handler: "review.myReviews",
+      config: {
+        middlewares: ["api::review.review-info"],
+      },
+    },
+
     {
       method: "GET",
       path: "/get-info-product-review/:productId",

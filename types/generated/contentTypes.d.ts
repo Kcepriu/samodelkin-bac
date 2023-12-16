@@ -1480,6 +1480,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
         max: 100;
       }> &
       Attribute.DefaultTo<0>;
+    salesLeader: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1586,6 +1587,7 @@ export interface ApiReviewReview extends Schema.CollectionType {
       'oneToOne',
       'plugin::users-permissions.user'
     >;
+    rank: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1626,6 +1628,7 @@ export interface ApiRevisedRevised extends Schema.CollectionType {
       'oneToMany',
       'api::product.product'
     >;
+    rank: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
