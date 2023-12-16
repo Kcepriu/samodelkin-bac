@@ -31,6 +31,7 @@ export default {
       config: {
         middlewares: [
           "api::review.review-info",
+          "api::review.is-role-feedback-moderator",
           "api::review.validation-change-status-review",
         ],
       },
