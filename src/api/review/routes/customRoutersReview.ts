@@ -21,7 +21,10 @@ export default {
       path: "/reply-to-review/:id",
       handler: "review.replyToReview",
       config: {
-        middlewares: ["api::review.review-info"],
+        middlewares: [
+          "api::review.review-info",
+          "api::review.is-role-create-reply-review",
+        ],
       },
     },
     {
