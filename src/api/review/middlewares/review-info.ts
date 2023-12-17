@@ -1,5 +1,4 @@
 import { Strapi } from "@strapi/strapi";
-import { fieldsProductShort } from "../../../constants/fieldsMiddleware";
 
 export default (config, { strapi }: { strapi: Strapi }) => {
   return async (ctx, next) => {

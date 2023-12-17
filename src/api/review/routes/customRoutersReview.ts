@@ -8,6 +8,16 @@ export default {
         middlewares: ["api::review.review-info"],
       },
     },
+
+    {
+      method: "GET",
+      path: "/my-reviews",
+      handler: "review.myReviews",
+      config: {
+        middlewares: ["api::review.review-info"],
+      },
+    },
+
     {
       method: "GET",
       path: "/get-info-product-review/:productId",
@@ -21,7 +31,10 @@ export default {
       path: "/reply-to-review/:id",
       handler: "review.replyToReview",
       config: {
-        middlewares: ["api::review.review-info"],
+        middlewares: [
+          "api::review.review-info",
+          "api::review.is-role-create-reply-review",
+        ],
       },
     },
     {
@@ -31,6 +44,7 @@ export default {
       config: {
         middlewares: [
           "api::review.review-info",
+          "api::review.is-role-feedback-moderator",
           "api::review.validation-change-status-review",
         ],
       },

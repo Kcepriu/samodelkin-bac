@@ -33,8 +33,8 @@ export default ({ env }) => ({
         // ... any custom nodemailer options
       },
       settings: {
-        defaultFrom: "umbrellas_shop@ukr.net",
-        defaultReplyTo: "umbrellas_shop@ukr.net",
+        defaultFrom: env("SMTP_USERNAME", "smtp@example.com"),
+        defaultReplyTo: env("SMTP_USERNAME", "smtp@example.com"),
       },
     },
   },

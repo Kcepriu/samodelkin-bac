@@ -20,6 +20,7 @@
     "@strapi/provider-upload-cloudinary": "^4.14.0",
     "@strapi/strapi": "4.14.0",
     "custom-slug": "^2.1.1",
+    "date-fns": "^2.30.0",
     "joi": "^17.10.2",
     "pg": "8.8.0",
     "strapi-plugin-email-designer": "^2.2.0",

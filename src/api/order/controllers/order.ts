@@ -70,7 +70,9 @@ export default factories.createCoreController(
 
       const sanitizedResults = await this.sanitizeOutput(results, ctx);
 
-      return this.transformResponse(sanitizedResults, {});
+      const fullInformation = this.transformResponse(sanitizedResults, {});
+
+      return fullInformation;
     },
   })
 );

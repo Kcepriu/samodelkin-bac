@@ -68,16 +68,18 @@
     },
     "firstName": {
       "type": "string",
-      "required": false,
-      "default": ""
+      "required": false
     },
     "lastName": {
-      "type": "string",
-      "default": ""
+      "type": "string"
     },
     "phoneNumber": {
-      "type": "string",
-      "default": ""
+      "type": "string"
+    },
+    "additional_roles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::additional-role.additional-role"
     }
   }
 }
