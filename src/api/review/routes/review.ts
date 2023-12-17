@@ -13,7 +13,16 @@ export default factories.createCoreRouter("api::review.review", {
       middlewares: ["api::review.review-info"],
     },
     create: {
-      middlewares: ["api::review.review-info"],
+      middlewares: [
+        "api::review.review-info",
+        "api::review.review-send-message",
+      ],
+    },
+    delete: {
+      middlewares: [
+        "api::review.review-info",
+        "api::review.is-role-feedback-moderator",
+      ],
     },
   },
 });

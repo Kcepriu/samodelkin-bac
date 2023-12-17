@@ -1,6 +1,6 @@
 import { Strapi } from "@strapi/strapi";
 import { IOrder } from "../types/order.type";
-
+import { IReview } from "../types/review.type";
 import { FRONTEND_ROUTES } from "../constants/app-keys.const";
 import { formatDateOrder } from "./formatDateTime";
 import { formatPrice } from "./formatNumber";
@@ -111,5 +111,26 @@ export const sendOrderToMail = async (strapi: Strapi, order: IOrder) => {
       strapi.log.debug("📺: ", err);
       // return ctx.badRequest(null, err);
     }
+  }
+};
+
+export const sendReviewToAdmin = async (strapi: Strapi, review: IReview) => {
+  if (!review) return;
+  const { id, attributes } = review;
+
+  const data = { id, ...attributes, date: formatDateOrder(attributes.date) };
+  try {
+    const { composedText = "" } = await strapi.plugins[
+      "email-designer"
+    ].services.email.compose({
+      templateReferenceId: 3,
+      data,
+    });
+
+    await strapi
+      .plugin("telegram-bot-strapi")
+      .telegramBot.sendMessageToAdmins(composedText);
+  } catch (err) {
+    strapi.log.debug("📺: ", err);
   }
 };
