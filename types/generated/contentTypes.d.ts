@@ -938,6 +938,7 @@ export interface ApiAboutUsSectionAboutUsSection extends Schema.SingleType {
       ]
     > &
       Attribute.Required;
+    seo: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1057,6 +1058,7 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     singularName: 'category';
     pluralName: 'categories';
     displayName: 'Category';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -1092,6 +1094,12 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'manyToMany',
       'api::product.product'
     >;
+    seo: Attribute.Component<'shared.seo'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1214,6 +1222,7 @@ export interface ApiDeliveryAndPaymentDeliveryAndPayment
       ]
     > &
       Attribute.Required;
+    seo: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1285,6 +1294,7 @@ export interface ApiExchangeAndReturnExchangeAndReturn
     singularName: 'exchange-and-return';
     pluralName: 'exchange-and-returns';
     displayName: 'ExchangeAndReturn';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1299,6 +1309,7 @@ export interface ApiExchangeAndReturnExchangeAndReturn
       ]
     > &
       Attribute.Required;
+    seo: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1370,6 +1381,7 @@ export interface ApiMainPageMainPage extends Schema.SingleType {
   };
   attributes: {
     banner: Attribute.Media & Attribute.Required;
+    seo: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1464,7 +1476,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
       >;
     descrition: Attribute.RichText;
     price: Attribute.Decimal;
-    seo: Attribute.Component<'shared.seo', true>;
+    seo: Attribute.Component<'shared.seo'>;
     available: Attribute.Boolean & Attribute.DefaultTo<true>;
     colorBox: Attribute.Relation<
       'api::product.product',

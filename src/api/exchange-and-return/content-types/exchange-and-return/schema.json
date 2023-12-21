@@ -4,7 +4,8 @@
   "info": {
     "singularName": "exchange-and-return",
     "pluralName": "exchange-and-returns",
-    "displayName": "ExchangeAndReturn"
+    "displayName": "ExchangeAndReturn",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -20,6 +21,11 @@
         "articles.title-article"
       ],
       "required": true
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
     }
   }
 }
