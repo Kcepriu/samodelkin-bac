@@ -9,5 +9,8 @@ export default factories.createCoreRouter("api::category.category", {
     find: {
       middlewares: ["api::category.category-info"],
     },
+    findOne: {
+      middlewares: ["api::category.category-info"],
+    },
   },
 });

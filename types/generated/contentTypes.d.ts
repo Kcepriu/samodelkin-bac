@@ -1130,6 +1130,7 @@ export interface ApiCategoryDescriptionCategoryDescription
     singularName: 'category-description';
     pluralName: 'category-descriptions';
     displayName: 'Category description';
+    description: '';
   };
   options: {
     draftAndPublish: false;

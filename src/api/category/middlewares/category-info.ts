@@ -1,5 +1,5 @@
 /**
- * `about-us-info` middleware
+ * `category-description-info` middleware
  */
 
 import { Strapi } from "@strapi/strapi";
