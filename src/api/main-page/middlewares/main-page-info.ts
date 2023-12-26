@@ -11,6 +11,9 @@ export default (config, { strapi }: { strapi: Strapi }) => {
       banner: {
         fields: ["*"],
       },
+      seo: {
+        fields: ["*"],
+      },
     };
 
     await next();

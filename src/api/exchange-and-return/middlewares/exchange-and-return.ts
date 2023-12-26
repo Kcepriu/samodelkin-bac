@@ -16,6 +16,9 @@ export default (config, { strapi }: { strapi: Strapi }) => {
           },
         },
       },
+      seo: {
+        fields: ["*"],
+      },
     };
 
     await next();
