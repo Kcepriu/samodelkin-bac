@@ -28,6 +28,9 @@ export default (config, { strapi }: { strapi: Strapi }) => {
           file: { fields: ["*"] },
         },
       },
+      seo: {
+        fields: ["*"],
+      },
     };
 
     await next();

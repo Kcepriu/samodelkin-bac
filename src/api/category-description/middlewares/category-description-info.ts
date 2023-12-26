@@ -13,7 +13,6 @@ export default (config, { strapi }: { strapi: Strapi }) => {
       },
       content: {
         fields: ["*"],
-
         populate: {
           image: {
             fields: ["*"],
