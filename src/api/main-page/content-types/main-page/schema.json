@@ -24,6 +24,15 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.seo"
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "telegram": {
+      "type": "string"
+    },
+    "workingHours": {
+      "type": "string"
     }
   }
 }

@@ -1383,6 +1383,9 @@ export interface ApiMainPageMainPage extends Schema.SingleType {
   attributes: {
     banner: Attribute.Media & Attribute.Required;
     seo: Attribute.Component<'shared.seo'>;
+    phoneNumber: Attribute.String;
+    telegram: Attribute.String;
+    workingHours: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
