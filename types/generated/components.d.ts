@@ -146,6 +146,19 @@ export interface OrderProductsOrder extends Schema.Component {
   };
 }
 
+export interface ProductCharacteristic extends Schema.Component {
+  collectionName: 'components_product_characteristics';
+  info: {
+    displayName: 'Characteristic';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    value: Attribute.String;
+    isFilter: Attribute.Boolean & Attribute.DefaultTo<false>;
+  };
+}
+
 export interface ProductLanguages extends Schema.Component {
   collectionName: 'components_product_languages';
   info: {
@@ -278,6 +291,7 @@ declare module '@strapi/types' {
       'order.address': OrderAddress;
       'order.contact-information': OrderContactInformation;
       'order.products-order': OrderProductsOrder;
+      'product.characteristic': ProductCharacteristic;
       'product.languages': ProductLanguages;
       'product.manual': ProductManual;
       'product.videos': ProductVideos;
