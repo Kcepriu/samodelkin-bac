@@ -28,6 +28,16 @@ export default (config, { strapi }: { strapi: Strapi }) => {
           file: { fields: ["*"] },
         },
       },
+      characteristics: {
+        fields: ["*"],
+      },
+      relatedProduct: {
+        fields: ["title", "code", "slug", "images"],
+        populate: {
+          images: { fields: ["*"] },
+        },
+      },
+
       seo: {
         fields: ["*"],
       },

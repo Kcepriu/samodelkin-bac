@@ -65,11 +65,6 @@
       "default": true,
       "required": false
     },
-    "colorBox": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::color.color"
-    },
     "additions": {
       "type": "boolean",
       "default": false
@@ -97,6 +92,16 @@
     "salesLeader": {
       "type": "boolean",
       "default": false
+    },
+    "relatedProduct": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product"
+    },
+    "characteristics": {
+      "type": "component",
+      "repeatable": true,
+      "component": "product.characteristic"
     }
   }
 }

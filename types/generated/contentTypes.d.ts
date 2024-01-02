@@ -1482,11 +1482,6 @@ export interface ApiProductProduct extends Schema.CollectionType {
     price: Attribute.Decimal;
     seo: Attribute.Component<'shared.seo'>;
     available: Attribute.Boolean & Attribute.DefaultTo<true>;
-    colorBox: Attribute.Relation<
-      'api::product.product',
-      'oneToOne',
-      'api::color.color'
-    >;
     additions: Attribute.Boolean & Attribute.DefaultTo<false>;
     videos: Attribute.Component<'product.videos', true>;
     languages: Attribute.Component<'product.languages', true>;
@@ -1497,6 +1492,12 @@ export interface ApiProductProduct extends Schema.CollectionType {
       }> &
       Attribute.DefaultTo<0>;
     salesLeader: Attribute.Boolean & Attribute.DefaultTo<false>;
+    relatedProduct: Attribute.Relation<
+      'api::product.product',
+      'oneToOne',
+      'api::product.product'
+    >;
+    characteristics: Attribute.Component<'product.characteristic', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

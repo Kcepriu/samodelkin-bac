@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_product_characteristics",
+  "info": {
+    "displayName": "Characteristic",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    },
+    "isFilter": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
