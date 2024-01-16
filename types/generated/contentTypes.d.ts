@@ -1426,6 +1426,7 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     products: Attribute.Component<'order.products-order', true>;
     comment: Attribute.Text;
     contactInformation: Attribute.Component<'order.contact-information'>;
+    isCompleted: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1663,6 +1664,35 @@ export interface ApiRevisedRevised extends Schema.CollectionType {
   };
 }
 
+export interface ApiSubscriptionSubscription extends Schema.CollectionType {
+  collectionName: 'subscriptions';
+  info: {
+    singularName: 'subscription';
+    pluralName: 'subscriptions';
+    displayName: 'Subscription';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    email: Attribute.Email & Attribute.Required & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::subscription.subscription',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::subscription.subscription',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1700,6 +1730,7 @@ declare module '@strapi/types' {
       'api::product-description.product-description': ApiProductDescriptionProductDescription;
       'api::review.review': ApiReviewReview;
       'api::revised.revised': ApiRevisedRevised;
+      'api::subscription.subscription': ApiSubscriptionSubscription;
     }
   }
 }

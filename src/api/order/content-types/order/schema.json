@@ -40,6 +40,10 @@
       "type": "component",
       "repeatable": false,
       "component": "order.contact-information"
+    },
+    "isCompleted": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
