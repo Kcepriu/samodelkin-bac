@@ -31,22 +31,27 @@ const getDataOrderToSend = (strapi: Strapi, order: IOrder) => {
   const delivery_service =
     addressDelivery?.delivery_service?.data?.attributes?.title || "";
   const url_product = `${url_front_end}${FRONTEND_ROUTES.PRODUCTS}`;
-  const newProducts = products.map(({ count, sum, price, product }) => {
-    const title = product?.data?.attributes?.title || "";
-    const arrImage = product?.data?.attributes?.images?.data || [];
-    const urlImage = arrImage.length > 0 ? arrImage[0].attributes.url : "";
-    const urlProduct = `${url_product}/${
-      product?.data?.attributes?.slug || ""
-    }`;
-    return {
-      count,
-      sum: formatPrice(sum),
-      price: formatPrice(price),
-      title,
-      urlImage,
-      urlProduct,
-    };
-  });
+  const newProducts = products.map(
+    ({ count, sum, price, product, language }) => {
+      const title = product?.data?.attributes?.title || "";
+      const languageTitle = language?.language || "ua";
+
+      const arrImage = product?.data?.attributes?.images?.data || [];
+      const urlImage = arrImage.length > 0 ? arrImage[0].attributes.url : "";
+      const urlProduct = `${url_product}/${
+        product?.data?.attributes?.slug || ""
+      }`;
+      return {
+        count,
+        sum: formatPrice(sum),
+        price: formatPrice(price),
+        title,
+        language: languageTitle,
+        urlImage,
+        urlProduct,
+      };
+    }
+  );
 
   return {
     emailTo,
