@@ -1,57 +1,44 @@
-# 🚀 Getting started with Strapi
+# Samodelkin - Інтернет-магазин настільних ігор
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+![Samodelkin Logo](url_to_your_logo.png)
 
-### `develop`
+Добро пожаловать в Samodelkin - ваш інтернет-магазин настільних ігор. Цей проект побудований на основі Strapi та TypeScript.
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
+## Огляд
 
-```
-npm run develop
-# or
-yarn develop
-```
+Samodelkin дозволяє вам продавати та купувати настільні ігри в зручний спосіб. Ви можете легко додавати нові товари, керувати замовленнями та взаємодіяти з вашим інтернет-магазином.
 
-### `start`
+## Table of Contents
 
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
+- [Встановлення](#встановлення)
+- [Запуск проекту](#запуск-проекту)
+- [Структура проекту](#структура-проекту)
+- [Внесення внесків](#внесення-внесків)
+- [Ліцензія](#ліцензія)
 
-```
-npm run start
-# or
-yarn start
-```
+## ⏳ Installation
 
-### `build`
+Переконайтеся, що ви маєте [Node.js](https://nodejs.org/) та [npm](https://www.npmjs.com/) встановлені на вашому комп'ютері.
 
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
+1. Клонуйте репозиторій:
 
-```
-npm run build
-# or
-yarn build
-```
+   ```bash
+   git clone https://github.com/your-username/samodelkin.git
+   ```
 
-## ⚙️ Deployment
+2. Перейдіть до каталогу проекту:
+   `cd samodelkin`
 
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
+3. Встановіть залежності:
+   `yarn`
 
-## 📚 Learn more
+## 🖐 Start project
 
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
+1. Запустіть Strapi: `yarn develop`
+2. Відкрийте ваш браузер і перейдіть за посиланням http://localhost:1337/admin.
 
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
+## Структура проекту
 
-## ✨ Community
+Опис структури проекту та важливі файли.
 
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
-
----
-
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+## 📚 References
