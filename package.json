@@ -30,7 +30,7 @@
     "telegram-bot-strapi": "^1.0.1"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "Serhii Kostiuchenko"
   },
   "strapi": {
     "uuid": "bf1665fb-71b4-4639-a51d-7f970f46dd62"

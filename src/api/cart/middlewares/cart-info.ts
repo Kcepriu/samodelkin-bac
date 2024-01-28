@@ -18,6 +18,13 @@ export default (config, { strapi }: { strapi: Strapi }) => {
               languages: {
                 fields: ["*"],
               },
+
+              relatedProduct: {
+                fields: ["title", "code", "slug"],
+                populate: {
+                  images: { fields: ["*"] },
+                },
+              },
             },
           },
           language: {
