@@ -41,6 +41,9 @@ export default ({ env }) => ({
   "drag-drop-content-types": {
     enabled: true,
   },
+
+  "react-icons": true,
+
   // "content-manager": {
   //   enabled: true,
   //   resolve: "./src/plugins/content-manager",

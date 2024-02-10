@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sharacteristics",
+  "info": {
+    "singularName": "sharacteristic",
+    "pluralName": "sharacteristics",
+    "displayName": "Сharacteristic",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "isFilter": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "icon": {
+      "type": "customField",
+      "customField": "plugin::react-icons.icon",
+      "required": true
+    }
+  }
+}

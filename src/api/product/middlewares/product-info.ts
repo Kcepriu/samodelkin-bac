@@ -30,6 +30,9 @@ export default (config, { strapi }: { strapi: Strapi }) => {
       },
       characteristics: {
         fields: ["*"],
+        populate: {
+          characteristic: { fields: ["*"] },
+        },
       },
       relatedProduct: {
         fields: ["title", "code", "slug", "images"],
