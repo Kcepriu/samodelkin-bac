@@ -3,6 +3,7 @@
  */
 
 import { factories } from "@strapi/strapi";
+import { createSqlTextGetListFilters } from "../../../helpers/filtersProduct";
 
 export default factories.createCoreController(
   "api::product.product",
@@ -92,46 +93,8 @@ export default factories.createCoreController(
 
     async getFilters(ctx) {
       const { categories } = ctx.params;
-      const filter = !!categories ? `and c.slug='${categories}'` : "";
       const resultsQuery = await strapi.db.connection.raw(
-        `select subquery.characteristics_id  as id,
-              subquery.sort,
-              subquery.icon,
-              subquery.title_characteristic as title,                
-              json_agg(subquery.value_characteristic) as value, 
-              json_agg(subquery.count) as count
-        from 
-            (
-              select CAST(s.id AS TEXT) as characteristics_id,
-                2 as sort,
-                s.icon as icon,
-                s.title as title_characteristic,
-                cpc.value as value_characteristic,
-                count(p.id) as count                     
-                    from products as p
-                      INNER JOIN products_components as pcomp  on p.id = pcomp.entity_id and field='characteristics'
-                      INNER JOIN components_product_characteristics_characteristic_links as cpccl on pcomp.component_id = cpccl.characteristic_id
-                      INNER JOIN components_product_characteristics as cpc on cpccl.characteristic_id = cpc.id
-                      INNER JOIN sharacteristics as s on s.id = cpccl.sharacteristic_id and s.is_filter=true
-                      INNER JOIN products_categories_links as pcl on p.id = pcl.product_id
-                      INNER JOIN categories as c on pcl.category_id = c.id  ${filter}
-              GROUP BY  characteristics_id, title_characteristic, value_characteristic, icon
-                
-              UNION ALL
-                
-              select 'price' as characteristics_id,  				
-                  1 as sort,
-                  '',
-                  'Ціна' as title_characteristic,
-                    CAST(max(p.price) as TEXT) as value_characteristic,  
-                    count(p.id) as count  				
-                      from products as p
-                        INNER JOIN products_categories_links as pcl on p.id = pcl.product_id
-                        INNER JOIN categories as c on pcl.category_id = c.id  ${filter}
-                      GROUP BY characteristics_id, title_characteristic
-                    ) as subquery
-        GROUP BY  characteristics_id, title_characteristic, sort, icon
-        order BY  sort`
+        createSqlTextGetListFilters(categories)
       );
 
       const result = this.transformResponse(resultsQuery.rows);
