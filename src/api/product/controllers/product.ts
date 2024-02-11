@@ -13,25 +13,34 @@ export default factories.createCoreController(
         typeof ctx.request.query.filters === "object"
           ? ctx.request.query.filters
           : {};
+
       const sanitizedQueryParams = await this.sanitizeQuery(ctx);
-      const filter = { characteristics: "" };
+      const filterCategory = sanitizedQueryParams?.category;
 
-      console.log("filterCharacteristics", filterCharacteristics);
+      const listProduct = !filterCharacteristics
+        ? null
+        : await strapi
+            .service("api::product.product")
+            .getFilteredProduct(filterCharacteristics, filterCategory);
 
-      const { characteristics, ...tmpFilter } =
+      const filter = !listProduct ? {} : { id: { $in: listProduct } };
+
+      const {
+        //@ts-ignore
+        characteristics = null,
+        ...otherFilters
+      } =
         sanitizedQueryParams.filters &&
         typeof sanitizedQueryParams.filters === "object"
-          ? {
-              ...sanitizedQueryParams.filters,
-              ...filter,
-            }
-          : filter;
+          ? sanitizedQueryParams.filters
+          : {};
 
-      sanitizedQueryParams.filters = tmpFilter;
+      sanitizedQueryParams.filters = { ...otherFilters, ...filter };
 
       const { results, pagination } = await strapi
         .service("api::product.product")
         .find(sanitizedQueryParams);
+
       const sanitizedResults = await this.sanitizeOutput(results, ctx);
 
       return this.transformResponse(sanitizedResults, { pagination });
