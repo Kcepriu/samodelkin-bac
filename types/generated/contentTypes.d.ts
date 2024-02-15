@@ -482,6 +482,51 @@ export interface PluginUploadFolder extends Schema.CollectionType {
   };
 }
 
+export interface PluginReactIconsIconlibrary extends Schema.CollectionType {
+  collectionName: 'iconlibrary';
+  info: {
+    singularName: 'iconlibrary';
+    pluralName: 'iconlibraries';
+    displayName: 'IconLibrary';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    abbreviation: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMaxLength<{
+        maxLength: 3;
+      }>;
+    isEnabled: Attribute.Boolean & Attribute.DefaultTo<true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::react-icons.iconlibrary',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::react-icons.iconlibrary',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -1664,6 +1709,42 @@ export interface ApiRevisedRevised extends Schema.CollectionType {
   };
 }
 
+export interface ApiSharacteristicSharacteristic extends Schema.CollectionType {
+  collectionName: 'sharacteristics';
+  info: {
+    singularName: 'sharacteristic';
+    pluralName: 'sharacteristics';
+    displayName: '\u0421haracteristic';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    title: Attribute.String;
+    isFilter: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    icon: Attribute.String &
+      Attribute.Required &
+      Attribute.CustomField<'plugin::react-icons.icon'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::sharacteristic.sharacteristic',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::sharacteristic.sharacteristic',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSubscriptionSubscription extends Schema.CollectionType {
   collectionName: 'subscriptions';
   info: {
@@ -1705,6 +1786,7 @@ declare module '@strapi/types' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
+      'plugin::react-icons.iconlibrary': PluginReactIconsIconlibrary;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
@@ -1730,6 +1812,7 @@ declare module '@strapi/types' {
       'api::product-description.product-description': ApiProductDescriptionProductDescription;
       'api::review.review': ApiReviewReview;
       'api::revised.revised': ApiRevisedRevised;
+      'api::sharacteristic.sharacteristic': ApiSharacteristicSharacteristic;
       'api::subscription.subscription': ApiSubscriptionSubscription;
     }
   }

@@ -6,15 +6,13 @@
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
     "value": {
       "type": "string"
     },
-    "isFilter": {
-      "type": "boolean",
-      "default": false
+    "characteristic": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::sharacteristic.sharacteristic"
     }
   }
 }

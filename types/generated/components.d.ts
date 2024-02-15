@@ -153,9 +153,12 @@ export interface ProductCharacteristic extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.String;
     value: Attribute.String;
-    isFilter: Attribute.Boolean & Attribute.DefaultTo<false>;
+    characteristic: Attribute.Relation<
+      'product.characteristic',
+      'oneToOne',
+      'api::sharacteristic.sharacteristic'
+    >;
   };
 }
 
