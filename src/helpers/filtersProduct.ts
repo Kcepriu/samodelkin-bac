@@ -72,7 +72,7 @@ export const createSqlTextGetListFilters = (filterCategory: string): string => {
               subquery.sort,
               subquery.icon,
               subquery.title_characteristic as title,                
-              json_agg(subquery.value_characteristic) as value, 
+              json_agg(subquery.value_characteristic ORDER BY subquery.value_characteristic) as value, 
               json_agg(subquery.count) as count
         from 
             (
