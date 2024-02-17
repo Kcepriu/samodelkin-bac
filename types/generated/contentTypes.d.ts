@@ -1544,6 +1544,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'api::product.product'
     >;
     characteristics: Attribute.Component<'product.characteristic', true>;
+    isDisable: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

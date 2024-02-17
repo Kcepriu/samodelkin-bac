@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-02-11T15:13:15.409Z"
+    "x-generation-date": "2024-02-17T13:27:26.100Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -4564,6 +4564,9 @@
                           }
                         }
                       },
+                      "isDisable": {
+                        "type": "boolean"
+                      },
                       "createdAt": {
                         "type": "string",
                         "format": "date-time"
@@ -6565,6 +6568,9 @@
                             }
                           }
                         },
+                        "isDisable": {
+                          "type": "boolean"
+                        },
                         "createdAt": {
                           "type": "string",
                           "format": "date-time"
@@ -8123,6 +8129,9 @@
                                           }
                                         }
                                       }
+                                    },
+                                    "isDisable": {
+                                      "type": "boolean"
                                     },
                                     "createdAt": {
                                       "type": "string",
@@ -12364,6 +12373,9 @@
                             }
                           }
                         },
+                        "isDisable": {
+                          "type": "boolean"
+                        },
                         "createdAt": {
                           "type": "string",
                           "format": "date-time"
@@ -14165,6 +14177,9 @@
                 "items": {
                   "$ref": "#/components/schemas/ProductCharacteristicComponent"
                 }
+              },
+              "isDisable": {
+                "type": "boolean"
               }
             }
           }
@@ -15561,6 +15576,9 @@
                                           }
                                         }
                                       },
+                                      "isDisable": {
+                                        "type": "boolean"
+                                      },
                                       "createdAt": {
                                         "type": "string",
                                         "format": "date-time"
@@ -16210,6 +16228,9 @@
             "items": {
               "$ref": "#/components/schemas/ProductCharacteristicComponent"
             }
+          },
+          "isDisable": {
+            "type": "boolean"
           },
           "createdAt": {
             "type": "string",
@@ -18305,6 +18326,9 @@
                           }
                         }
                       },
+                      "isDisable": {
+                        "type": "boolean"
+                      },
                       "createdAt": {
                         "type": "string",
                         "format": "date-time"
@@ -20303,6 +20327,9 @@
                             }
                           }
                         }
+                      },
+                      "isDisable": {
+                        "type": "boolean"
                       },
                       "createdAt": {
                         "type": "string",
@@ -22965,6 +22992,9 @@
                               }
                             }
                           }
+                        },
+                        "isDisable": {
+                          "type": "boolean"
                         },
                         "createdAt": {
                           "type": "string",
