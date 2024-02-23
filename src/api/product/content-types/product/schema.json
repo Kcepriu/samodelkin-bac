@@ -106,6 +106,13 @@
     "isDisable": {
       "type": "boolean",
       "default": false
+    },
+    "boxContent": {
+      "type": "text"
+    },
+    "rank": {
+      "type": "integer",
+      "default": 1
     }
   }
 }

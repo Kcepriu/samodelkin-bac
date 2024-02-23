@@ -1545,6 +1545,8 @@ export interface ApiProductProduct extends Schema.CollectionType {
     >;
     characteristics: Attribute.Component<'product.characteristic', true>;
     isDisable: Attribute.Boolean & Attribute.DefaultTo<false>;
+    boxContent: Attribute.Text;
+    rank: Attribute.Integer & Attribute.DefaultTo<1>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

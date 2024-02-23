@@ -184,7 +184,9 @@ export interface ProductManual extends Schema.Component {
   };
   attributes: {
     file: Attribute.Media;
-    description: Attribute.String & Attribute.DefaultTo<''>;
+    description: Attribute.String;
+    languages: Attribute.Enumeration<['ua', 'us', 'ru']> &
+      Attribute.DefaultTo<'ua'>;
   };
 }
 

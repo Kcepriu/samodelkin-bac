@@ -11,11 +11,21 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["files"]
+      "allowedTypes": [
+        "files"
+      ]
     },
     "description": {
-      "type": "string",
-      "default": ""
+      "type": "string"
+    },
+    "languages": {
+      "type": "enumeration",
+      "enum": [
+        "ua",
+        "us",
+        "ru"
+      ],
+      "default": "ua"
     }
   }
 }
