@@ -14,6 +14,7 @@ export default factories.createCoreService(
       category: string
     ): Promise<number[] | null> {
       const textSQL = createSqlText(filters, category);
+
       const resultsQuery = await strapi.db.connection.raw(textSQL);
       const rows = resultsQuery?.rows || [];
       return rows.map((elemen) => elemen.product_id);

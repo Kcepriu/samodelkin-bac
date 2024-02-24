@@ -19,11 +19,14 @@ const getWherePrice = (price = "") => {
   return !price ? "" : `p.price < ${price}`;
 };
 
-const getFilterValueCharacteristic = (value: string | string[]) => {
+const getFilterValueCharacteristic = (
+  value: string | string[],
+  fieldName = "cpc.value"
+) => {
   const values = typeof value === "string" ? [value] : value;
 
   const filters = values
-    .map((valueFilter) => `cpc.value = '${valueFilter}'`)
+    .map((valueFilter) => `${fieldName} = '${valueFilter}'`)
     .join(" or ");
 
   return filters;
@@ -31,8 +34,8 @@ const getFilterValueCharacteristic = (value: string | string[]) => {
 
 const getCharacteristicSQL = (id: string, value: string | string[]): string => {
   // and cpc.value = '${value}'
-
-  return `
+  if (id !== "language")
+    return `
         select pcomp.entity_id from products_components as pcomp 
 				INNER JOIN components_product_characteristics_characteristic_links as cpccl 
 					on pcomp.component_id = cpccl.characteristic_id
@@ -41,6 +44,14 @@ const getCharacteristicSQL = (id: string, value: string | string[]): string => {
 				INNER JOIN components_product_characteristics as cpc 
 					on cpccl.characteristic_id = cpc.id 
 					and  (${getFilterValueCharacteristic(value)})
+          `;
+
+  return `
+        select pcomp.entity_id from products_components as pcomp 
+				INNER JOIN components_product_languages as cpl
+            on pcomp.component_id = cpl.id
+              and pcomp.field='languages'
+              and  (${getFilterValueCharacteristic(value, "cpl.language")})
         `;
 };
 
@@ -59,6 +70,7 @@ const getArrayWhere = (filters: IFilters): string[] => {
   return Object.keys(filters).map((id) => {
     const characteristic_id = id.replace("id_", "");
     const valuePrice = filters[id];
+
     if (characteristic_id === "price")
       return getWherePrice(
         typeof valuePrice === "string" ? valuePrice : valuePrice[0]
