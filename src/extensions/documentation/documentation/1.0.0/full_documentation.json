@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-02-17T13:27:26.100Z"
+    "x-generation-date": "2024-02-24T10:03:25.677Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -4454,6 +4454,14 @@
                             },
                             "description": {
                               "type": "string"
+                            },
+                            "languages": {
+                              "type": "string",
+                              "enum": [
+                                "ua",
+                                "us",
+                                "ru"
+                              ]
                             }
                           }
                         }
@@ -4566,6 +4574,12 @@
                       },
                       "isDisable": {
                         "type": "boolean"
+                      },
+                      "boxContent": {
+                        "type": "string"
+                      },
+                      "rank": {
+                        "type": "integer"
                       },
                       "createdAt": {
                         "type": "string",
@@ -6458,6 +6472,14 @@
                               },
                               "description": {
                                 "type": "string"
+                              },
+                              "languages": {
+                                "type": "string",
+                                "enum": [
+                                  "ua",
+                                  "us",
+                                  "ru"
+                                ]
                               }
                             }
                           }
@@ -6570,6 +6592,12 @@
                         },
                         "isDisable": {
                           "type": "boolean"
+                        },
+                        "boxContent": {
+                          "type": "string"
+                        },
+                        "rank": {
+                          "type": "integer"
                         },
                         "createdAt": {
                           "type": "string",
@@ -8020,6 +8048,14 @@
                                           },
                                           "description": {
                                             "type": "string"
+                                          },
+                                          "languages": {
+                                            "type": "string",
+                                            "enum": [
+                                              "ua",
+                                              "us",
+                                              "ru"
+                                            ]
                                           }
                                         }
                                       }
@@ -8132,6 +8168,12 @@
                                     },
                                     "isDisable": {
                                       "type": "boolean"
+                                    },
+                                    "boxContent": {
+                                      "type": "string"
+                                    },
+                                    "rank": {
+                                      "type": "integer"
                                     },
                                     "createdAt": {
                                       "type": "string",
@@ -12263,6 +12305,14 @@
                               },
                               "description": {
                                 "type": "string"
+                              },
+                              "languages": {
+                                "type": "string",
+                                "enum": [
+                                  "ua",
+                                  "us",
+                                  "ru"
+                                ]
                               }
                             }
                           }
@@ -12375,6 +12425,12 @@
                         },
                         "isDisable": {
                           "type": "boolean"
+                        },
+                        "boxContent": {
+                          "type": "string"
+                        },
+                        "rank": {
+                          "type": "integer"
                         },
                         "createdAt": {
                           "type": "string",
@@ -14180,6 +14236,12 @@
               },
               "isDisable": {
                 "type": "boolean"
+              },
+              "boxContent": {
+                "type": "string"
+              },
+              "rank": {
+                "type": "integer"
               }
             }
           }
@@ -15466,6 +15528,14 @@
                                             },
                                             "description": {
                                               "type": "string"
+                                            },
+                                            "languages": {
+                                              "type": "string",
+                                              "enum": [
+                                                "ua",
+                                                "us",
+                                                "ru"
+                                              ]
                                             }
                                           }
                                         }
@@ -15578,6 +15648,12 @@
                                       },
                                       "isDisable": {
                                         "type": "boolean"
+                                      },
+                                      "boxContent": {
+                                        "type": "string"
+                                      },
+                                      "rank": {
+                                        "type": "integer"
                                       },
                                       "createdAt": {
                                         "type": "string",
@@ -16232,6 +16308,12 @@
           "isDisable": {
             "type": "boolean"
           },
+          "boxContent": {
+            "type": "string"
+          },
+          "rank": {
+            "type": "integer"
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -16478,6 +16560,14 @@
           },
           "description": {
             "type": "string"
+          },
+          "languages": {
+            "type": "string",
+            "enum": [
+              "ua",
+              "us",
+              "ru"
+            ]
           }
         }
       },
@@ -18216,6 +18306,14 @@
                             },
                             "description": {
                               "type": "string"
+                            },
+                            "languages": {
+                              "type": "string",
+                              "enum": [
+                                "ua",
+                                "us",
+                                "ru"
+                              ]
                             }
                           }
                         }
@@ -18328,6 +18426,12 @@
                       },
                       "isDisable": {
                         "type": "boolean"
+                      },
+                      "boxContent": {
+                        "type": "string"
+                      },
+                      "rank": {
+                        "type": "integer"
                       },
                       "createdAt": {
                         "type": "string",
@@ -20218,6 +20322,14 @@
                             },
                             "description": {
                               "type": "string"
+                            },
+                            "languages": {
+                              "type": "string",
+                              "enum": [
+                                "ua",
+                                "us",
+                                "ru"
+                              ]
                             }
                           }
                         }
@@ -20330,6 +20442,12 @@
                       },
                       "isDisable": {
                         "type": "boolean"
+                      },
+                      "boxContent": {
+                        "type": "string"
+                      },
+                      "rank": {
+                        "type": "integer"
                       },
                       "createdAt": {
                         "type": "string",
@@ -22883,6 +23001,14 @@
                               },
                               "description": {
                                 "type": "string"
+                              },
+                              "languages": {
+                                "type": "string",
+                                "enum": [
+                                  "ua",
+                                  "us",
+                                  "ru"
+                                ]
                               }
                             }
                           }
@@ -22995,6 +23121,12 @@
                         },
                         "isDisable": {
                           "type": "boolean"
+                        },
+                        "boxContent": {
+                          "type": "string"
+                        },
+                        "rank": {
+                          "type": "integer"
                         },
                         "createdAt": {
                           "type": "string",

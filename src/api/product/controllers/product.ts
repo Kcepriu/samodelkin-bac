@@ -15,6 +15,8 @@ export default factories.createCoreController(
           ? ctx.request.query.filters
           : {};
 
+      //  ~ filterCharacteristics: { id_1: [ '4-6', '10-16' ], id_2: '18+', id_price: '500' }
+
       const sanitizedQueryParams = await this.sanitizeQuery(ctx);
       const filterCategory = sanitizedQueryParams?.category;
 
